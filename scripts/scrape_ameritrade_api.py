@@ -4,17 +4,18 @@
 __author__ = 'Martin Blais <blais@furius.ca>'
 __license__ = "GNU GPLv2"
 
+from os import path
+from typing import Any, Dict, List, Tuple, Union
+import argparse
+import hashlib
+import json
+import logging
 import logging
 import os
+import pprint
 import re
 import tempfile
 import time
-import argparse
-import json
-import logging
-import pprint
-from os import path
-from typing import Any, Dict, List, Tuple, Union
 
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
@@ -25,7 +26,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
 
-DEFAULT_OUTPUT = path.join(path.dirname(path.dirname(__file__)), 'schemas')
+# Raw downloads scraped from the site. These get processed by another script
+# into sanitized versions that can be processed.
+DEFAULT_OUTPUT = path.join(path.dirname(path.dirname(__file__)), 'raw')
 
 
 def CreateDriver(driver_exec: str = "/usr/local/bin/chromedriver",
