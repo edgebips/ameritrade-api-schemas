@@ -1,0 +1,7 @@
+{
+    "207": "Indicates there was a problem getting account data for one or more linked accounts, but the accounts who's data returned successfully is in the response. Do not aggregate balances and positions for this case.",
+    "400": "An error message indicating the validation problem with the request.",
+    "401": "An error message indicating the caller must pass a valid AuthToken in the HTTP authorization request header.",
+    "403": "An error message indicating the caller is forbidden from accessing this page.",
+    "500": "An error message indicating there was an unexpected server error."
+}

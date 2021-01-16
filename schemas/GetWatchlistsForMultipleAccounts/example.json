@@ -1,0 +1,24 @@
+[
+//Watchlist:
+{
+  "name": "string",
+  "watchlistId": "string",
+  "accountId": "string",
+  "status": "'UNCHANGED' or 'CREATED' or 'UPDATED' or 'DELETED'",
+  "watchlistItems": [
+    {
+      "sequenceId": 0,
+      "quantity": 0,
+      "averagePrice": 0,
+      "commission": 0,
+      "purchasedDate": "DateParam\"",
+      "instrument": {
+        "symbol": "string",
+        "description": "string",
+        "assetType": "'EQUITY' or 'OPTION' or 'MUTUAL_FUND' or 'FIXED_INCOME' or 'INDEX'"
+      },
+      "status": "'UNCHANGED' or 'CREATED' or 'UPDATED' or 'DELETED'"
+    }
+  ]
+}
+]

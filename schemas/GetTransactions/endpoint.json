@@ -1,0 +1,22 @@
+{
+    "link": "https://api.tdameritrade.com/v1/accounts/{accountId}/transactions",
+    "method": "GET",
+    "query_params": {
+        "endDate": {
+            "description": "Only transactions before the End Date will be returned.\nNote: The maximum date range is one year. Valid ISO-8601 formats are :\nyyyy-MM-dd.",
+            "required": false
+        },
+        "startDate": {
+            "description": "Only transactions after the Start Date will be returned.\nNote: The maximum date range is one year. Valid ISO-8601 formats are :\nyyyy-MM-dd.",
+            "required": false
+        },
+        "symbol": {
+            "description": "Only transactions with the specified symbol will be returned.",
+            "required": false
+        },
+        "type": {
+            "description": "Only transactions with the specified type will be returned.",
+            "required": false
+        }
+    }
+}

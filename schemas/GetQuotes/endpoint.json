@@ -1,0 +1,14 @@
+{
+    "link": "https://api.tdameritrade.com/v1/marketdata/quotes",
+    "method": "GET",
+    "query_params": {
+        "apikey": {
+            "description": "Pass your OAuth User ID to make an unauthenticated request for delayed data.",
+            "required": false
+        },
+        "symbol": {
+            "description": "Enter one or more symbols separated by commas",
+            "required": false
+        }
+    }
+}

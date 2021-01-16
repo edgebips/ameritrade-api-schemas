@@ -1,0 +1,6 @@
+{
+    "400": "An error message indicating the caller must pass a correct value in the parameter.",
+    "401": "Unauthorized",
+    "403": "Forbidden",
+    "404": "An error message indicating movers for the instrument was not found."
+}

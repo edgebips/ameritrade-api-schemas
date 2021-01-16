@@ -1,0 +1,9 @@
+//Mover:
+{
+  "change": 0,
+  "description": "string",
+  "direction": "'up' or 'down'",
+  "last": 0,
+  "symbol": "string",
+  "totalVolume": 0
+}

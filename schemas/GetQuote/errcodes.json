@@ -1,0 +1,6 @@
+{
+    "400": "An error message indicating the caller must pass a non null value in the parameter.",
+    "401": "An error message indicating the caller must pass a valid Authorization in the HTTP authorization request header.",
+    "403": "An error message indicating the caller is forbidden from accessing this page.",
+    "404": "An error message indicating the instrument for the symbol/cusip was not found."
+}

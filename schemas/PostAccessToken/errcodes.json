@@ -1,0 +1,7 @@
+{
+    "400": "An error message indicating the validation problem with the request.",
+    "401": "An error message indicating the caller must pass valid credentials in the request body.",
+    "403": "An error message indicating the caller doesn't have access to the account in the request.",
+    "500": "An error message indicating there was an unexpected server error.",
+    "503": "An error message indicating there is a temporary problem responding."
+}

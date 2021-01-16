@@ -1,0 +1,6 @@
+{
+    "400": "An error message indicating invalid userId , password or source provided with the request.",
+    "401": "An error message indicating the caller must pass a valid AuthToken in the HTTP authorization request header.",
+    "500": "An error message indicating there was an unexpected server error.",
+    "503": "An error message indicating there is a temporary problem responding."
+}

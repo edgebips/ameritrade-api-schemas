@@ -1,0 +1,7 @@
+{
+    "400": "An error message indicating the validation problem with the request.",
+    "401": "An error message indicating the caller must pass a valid AuthToken in the HTTP authorization request header.",
+    "403": "An error message indicating the caller is forbidden from accessing this resource.",
+    "500": "An error message indicating there was an unexpected server error.",
+    "503": "An error message indicating there is a temporary problem responding."
+}

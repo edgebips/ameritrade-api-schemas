@@ -1,0 +1,11 @@
+//Hours:
+{
+  "category": "string",
+  "date": "string",
+  "exchange": "string",
+  "isOpen": false,
+  "marketType": "'BOND' or 'EQUITY' or 'ETF' or 'FOREX' or 'FUTURE' or 'FUTURE_OPTION' or 'INDEX' or 'INDICATOR' or 'MUTUAL_FUND' or 'OPTION' or 'UNKNOWN'",
+  "product": "string",
+  "productName": "string",
+  "sessionHours": "object"
+}

@@ -1,0 +1,132 @@
+//OptionChain:
+{
+  "symbol": "string",
+  "status": "string",
+  "underlying": {
+    "ask": 0,
+    "askSize": 0,
+    "bid": 0,
+    "bidSize": 0,
+    "change": 0,
+    "close": 0,
+    "delayed": false,
+    "description": "string",
+    "exchangeName": "string",
+    "fiftyTwoWeekHigh": 0,
+    "fiftyTwoWeekLow": 0,
+    "highPrice": 0,
+    "last": 0,
+    "lowPrice": 0,
+    "mark": 0,
+    "markChange": 0,
+    "markPercentChange": 0,
+    "openPrice": 0,
+    "percentChange": 0,
+    "quoteTime": 0,
+    "symbol": "string",
+    "totalVolume": 0,
+    "tradeTime": 0
+  },
+  "strategy": "'SINGLE' or 'ANALYTICAL' or 'COVERED' or 'VERTICAL' or 'CALENDAR' or 'STRANGLE' or 'STRADDLE' or 'BUTTERFLY' or 'CONDOR' or 'DIAGONAL' or 'COLLAR' or 'ROLL'",
+  "interval": 0,
+  "isDelayed": false,
+  "isIndex": false,
+  "daysToExpiration": 0,
+  "interestRate": 0,
+  "underlyingPrice": 0,
+  "volatility": 0,
+  "callExpDateMap": "object",
+  "putExpDateMap": "object"
+}
+ //StrikePriceMap:
+{}
+ //Option:
+{
+  "putCall": "'PUT' or 'CALL'",
+  "symbol": "string",
+  "description": "string",
+  "exchangeName": "string",
+  "bidPrice": 0,
+  "askPrice": 0,
+  "lastPrice": 0,
+  "markPrice": 0,
+  "bidSize": 0,
+  "askSize": 0,
+  "lastSize": 0,
+  "highPrice": 0,
+  "lowPrice": 0,
+  "openPrice": 0,
+  "closePrice": 0,
+  "totalVolume": 0,
+  "quoteTimeInLong": 0,
+  "tradeTimeInLong": 0,
+  "netChange": 0,
+  "volatility": 0,
+  "delta": 0,
+  "gamma": 0,
+  "theta": 0,
+  "vega": 0,
+  "rho": 0,
+  "timeValue": 0,
+  "openInterest": 0,
+  "isInTheMoney": false,
+  "theoreticalOptionValue": 0,
+  "theoreticalVolatility": 0,
+  "isMini": false,
+  "isNonStandard": false,
+  "optionDeliverablesList": [
+    {
+      "symbol": "string",
+      "assetType": "string",
+      "deliverableUnits": "string",
+      "currencyType": "string"
+    }
+  ],
+  "strikePrice": 0,
+  "expirationDate": "string",
+  "expirationType": "string",
+  "multiplier": 0,
+  "settlementType": "string",
+  "deliverableNote": "string",
+  "isIndexOption": false,
+  "percentChange": 0,
+  "markChange": 0,
+  "markPercentChange": 0
+}
+ //Underlying:
+{
+  "ask": 0,
+  "askSize": 0,
+  "bid": 0,
+  "bidSize": 0,
+  "change": 0,
+  "close": 0,
+  "delayed": false,
+  "description": "string",
+  "exchangeName": "'IND' or 'ASE' or 'NYS' or 'NAS' or 'NAP' or 'PAC' or 'OPR' or 'BATS'",
+  "fiftyTwoWeekHigh": 0,
+  "fiftyTwoWeekLow": 0,
+  "highPrice": 0,
+  "last": 0,
+  "lowPrice": 0,
+  "mark": 0,
+  "markChange": 0,
+  "markPercentChange": 0,
+  "openPrice": 0,
+  "percentChange": 0,
+  "quoteTime": 0,
+  "symbol": "string",
+  "totalVolume": 0,
+  "tradeTime": 0
+}
+ //ExpirationDate:
+{
+  "date": "string"
+}
+ //OptionDeliverables:
+{
+  "symbol": "string",
+  "assetType": "string",
+  "deliverableUnits": "string",
+  "currencyType": "string"
+}

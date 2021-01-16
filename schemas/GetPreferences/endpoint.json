@@ -1,0 +1,5 @@
+{
+    "link": "https://api.tdameritrade.com/v1/accounts/{accountId}/preferences",
+    "method": "GET",
+    "query_params": {}
+}

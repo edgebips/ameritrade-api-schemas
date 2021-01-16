@@ -1,0 +1,8 @@
+{
+    "400": "An error message indicating the validation problem with the request.",
+    "401": "An error message indicating the caller must pass a valid Authorization in the HTTP authorization request header.",
+    "403": "An error message indicating the caller doesn't have access to the account in the request.",
+    "404": "An error message indicating the specified transaction could not be found.",
+    "500": "An error message indicating there was an unexpected server error.",
+    "503": "An error message indicating there is a temporary problem responding."
+}

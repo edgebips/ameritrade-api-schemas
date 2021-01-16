@@ -1,0 +1,5 @@
+{
+    "link": "https://api.tdameritrade.com/v1/accounts/{accountId}/orders/{orderId}",
+    "method": "DELETE",
+    "query_params": {}
+}

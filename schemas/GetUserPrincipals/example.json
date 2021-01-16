@@ -1,0 +1,78 @@
+//UserPrincipal:
+{
+  "authToken": "string",
+  "userId": "string",
+  "userCdDomainId": "string",
+  "primaryAccountId": "string",
+  "lastLoginTime": "string",
+  "tokenExpirationTime": "string",
+  "loginTime": "string",
+  "accessLevel": "string",
+  "stalePassword": false,
+  "streamerInfo": {
+    "streamerBinaryUrl": "string",
+    "streamerSocketUrl": "string",
+    "token": "string",
+    "tokenTimestamp": "string",
+    "userGroup": "string",
+    "accessLevel": "string",
+    "acl": "string",
+    "appId": "string"
+  },
+  "professionalStatus": "'PROFESSIONAL' or 'NON_PROFESSIONAL' or 'UNKNOWN_STATUS'",
+  "quotes": {
+    "isNyseDelayed": false,
+    "isNasdaqDelayed": false,
+    "isOpraDelayed": false,
+    "isAmexDelayed": false,
+    "isCmeDelayed": false,
+    "isIceDelayed": false,
+    "isForexDelayed": false
+  },
+  "streamerSubscriptionKeys": {
+    "keys": [
+      {
+        "key": "string"
+      }
+    ]
+  },
+  "accounts": [
+    {
+      "accountId": "string",
+      "description": "string",
+      "displayName": "string",
+      "accountCdDomainId": "string",
+      "company": "string",
+      "segment": "string",
+      "surrogateIds": "object",
+      "preferences": {
+        "expressTrading": false,
+        "directOptionsRouting": false,
+        "directEquityRouting": false,
+        "defaultEquityOrderLegInstruction": "'BUY' or 'SELL' or 'BUY_TO_COVER' or 'SELL_SHORT' or 'NONE'",
+        "defaultEquityOrderType": "'MARKET' or 'LIMIT' or 'STOP' or 'STOP_LIMIT' or 'TRAILING_STOP' or 'MARKET_ON_CLOSE' or 'NONE'",
+        "defaultEquityOrderPriceLinkType": "'VALUE' or 'PERCENT' or 'NONE'",
+        "defaultEquityOrderDuration": "'DAY' or 'GOOD_TILL_CANCEL' or 'NONE'",
+        "defaultEquityOrderMarketSession": "'AM' or 'PM' or 'NORMAL' or 'SEAMLESS' or 'NONE'",
+        "defaultEquityQuantity": 0,
+        "mutualFundTaxLotMethod": "'FIFO' or 'LIFO' or 'HIGH_COST' or 'LOW_COST' or 'MINIMUM_TAX' or 'AVERAGE_COST' or 'NONE'",
+        "optionTaxLotMethod": "'FIFO' or 'LIFO' or 'HIGH_COST' or 'LOW_COST' or 'MINIMUM_TAX' or 'AVERAGE_COST' or 'NONE'",
+        "equityTaxLotMethod": "'FIFO' or 'LIFO' or 'HIGH_COST' or 'LOW_COST' or 'MINIMUM_TAX' or 'AVERAGE_COST' or 'NONE'",
+        "defaultAdvancedToolLaunch": "'TA' or 'N' or 'Y' or 'TOS' or 'NONE' or 'CC2'",
+        "authTokenTimeout": "'FIFTY_FIVE_MINUTES' or 'TWO_HOURS' or 'FOUR_HOURS' or 'EIGHT_HOURS'"
+      },
+      "acl": "string",
+      "authorizations": {
+        "apex": false,
+        "levelTwoQuotes": false,
+        "stockTrading": false,
+        "marginTrading": false,
+        "streamingNews": false,
+        "optionTradingLevel": "'COVERED' or 'FULL' or 'LONG' or 'SPREAD' or 'NONE'",
+        "streamerAccess": false,
+        "advancedMargin": false,
+        "scottradeAccount": false
+      }
+    }
+  ]
+}

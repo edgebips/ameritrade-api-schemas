@@ -1,0 +1,43 @@
+//Transaction:
+{
+  "type": "'TRADE' or 'RECEIVE_AND_DELIVER' or 'DIVIDEND_OR_INTEREST' or 'ACH_RECEIPT' or 'ACH_DISBURSEMENT' or 'CASH_RECEIPT' or 'CASH_DISBURSEMENT' or 'ELECTRONIC_FUND' or 'WIRE_OUT' or 'WIRE_IN' or 'JOURNAL' or 'MEMORANDUM' or 'MARGIN_CALL' or 'MONEY_MARKET' or 'SMA_ADJUSTMENT'",
+  "clearingReferenceNumber": "string",
+  "subAccount": "string",
+  "settlementDate": "string",
+  "orderId": "string",
+  "sma": 0,
+  "requirementReallocationAmount": 0,
+  "dayTradeBuyingPowerEffect": 0,
+  "netAmount": 0,
+  "transactionDate": "string",
+  "orderDate": "string",
+  "transactionSubType": "string",
+  "transactionId": 0,
+  "cashBalanceEffectFlag": false,
+  "description": "string",
+  "achStatus": "'Approved' or 'Rejected' or 'Cancel' or 'Error'",
+  "accruedInterest": 0,
+  "fees": "object",
+  "transactionItem": {
+    "accountId": 0,
+    "amount": 0,
+    "price": 0,
+    "cost": 0,
+    "parentOrderKey": 0,
+    "parentChildIndicator": "string",
+    "instruction": "string",
+    "positionEffect": "string",
+    "instrument": {
+      "symbol": "string",
+      "underlyingSymbol": "string",
+      "optionExpirationDate": "string",
+      "optionStrikePrice": 0,
+      "putCall": "string",
+      "cusip": "string",
+      "description": "string",
+      "assetType": "string",
+      "bondMaturityDate": "string",
+      "bondInterestRate": 0
+    }
+  }
+}

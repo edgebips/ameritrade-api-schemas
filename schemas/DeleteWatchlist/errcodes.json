@@ -1,0 +1,6 @@
+{
+    "204": "Watchlist deleted.",
+    "400": "An error message indicating the validation problem with the request.",
+    "401": "An error message indicating the caller must pass a valid Authorization in the HTTP authorization request header.",
+    "500": "An error message indicating there was an unexpected server error."
+}
