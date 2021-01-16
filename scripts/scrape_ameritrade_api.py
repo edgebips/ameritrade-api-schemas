@@ -7,7 +7,6 @@ __license__ = "GNU GPLv2"
 from os import path
 from typing import Any, Dict, List, Tuple, Union
 import argparse
-import hashlib
 import json
 import logging
 import logging

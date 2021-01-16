@@ -11,6 +11,7 @@ __license__ = "GNU GPLv2"
 from os import path
 from typing import Callable, Any, Iterable, Iterator, Union, Dict, List, Tuple
 import argparse
+import datetime
 import hashlib
 import json
 import logging
@@ -215,15 +216,33 @@ def main():
     # and coalesce each of the raw files into a single JSON tuple out to a
     # single file describing the service endpoint.
     os.makedirs(args.output, exist_ok=True)
+    hashes = {}
     for name, endpoint in ParseSchemas(args.raw_downloaded_data):
         logging.info("Processing %s", name)
         filename = path.join(args.output, "{}.json".format(name))
         with open(filename, 'w') as outfile:
             json.dump(endpoint, outfile, sort_keys=True, indent=4)
 
-    # Produce a single unique hash of all the cleaned up input data as a version
-    # number. This is not an integer, but a hash of the input; if the input is
-    # identical, the hash won't change.
+        hsh = hashlib.sha256()
+        with open(filename, 'rb') as infile:
+            hsh.update(infile.read())
+        hashes[name] = hsh
+
+    # Produce a unique hash of all the cleaned up input data. You can use this
+    # as a version number. This is not an integer, but a hash of the input; if
+    # the input is identical, the hash hasn't changed.
+    hsh = hashlib.sha256()
+    for name, msghash in sorted(hashes.items()):
+        hsh.update(name.encode('ascii'))
+        hsh.update(msghash.digest())
+    version = {
+        'hash': hsh.hexdigest(),
+        'date': datetime.date.today().isoformat(),
+        'messages': {name: msghash.hexdigest()
+                     for name, msghash in sorted(hashes.items())}
+    }
+    with open(path.join(args.output, "version.json"), 'w') as versfile:
+        json.dump(version, versfile, sort_keys=True, indent=4)
 
 
 if __name__ == '__main__':
