@@ -1,0 +1,658 @@
+{
+    "errors": {
+        "400": "An error message indicating the validation problem with the request.",
+        "401": "An error message indicating the caller must pass a valid AuthToken in the HTTP authorization request header.",
+        "403": "An error message indicating the caller is forbidden from accessing this page.",
+        "404": "An error message if the order was not found.",
+        "500": "An error message indicating there was an unexpected server error."
+    },
+    "link": "https://api.tdameritrade.com/v1/accounts/{accountId}/orders/{orderId}",
+    "method": "PUT",
+    "query_params": {},
+    "request": {
+        "sub": {
+            "Instrument": {
+                "CashEquivalent": {
+                    "assetType": {
+                        "enum": [
+                            "EQUITY",
+                            "OPTION",
+                            "INDEX",
+                            "MUTUAL_FUND",
+                            "CASH_EQUIVALENT",
+                            "FIXED_INCOME",
+                            "CURRENCY"
+                        ],
+                        "type": "string"
+                    },
+                    "cusip": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "symbol": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "enum": [
+                            "SAVINGS",
+                            "MONEY_MARKET_FUND"
+                        ],
+                        "type": "string"
+                    }
+                },
+                "Equity": {
+                    "assetType": {
+                        "enum": [
+                            "EQUITY",
+                            "OPTION",
+                            "INDEX",
+                            "MUTUAL_FUND",
+                            "CASH_EQUIVALENT",
+                            "FIXED_INCOME",
+                            "CURRENCY"
+                        ],
+                        "type": "string"
+                    },
+                    "cusip": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "symbol": {
+                        "type": "string"
+                    }
+                },
+                "FixedIncome": {
+                    "assetType": {
+                        "enum": [
+                            "EQUITY",
+                            "OPTION",
+                            "INDEX",
+                            "MUTUAL_FUND",
+                            "CASH_EQUIVALENT",
+                            "FIXED_INCOME",
+                            "CURRENCY"
+                        ],
+                        "type": "string"
+                    },
+                    "cusip": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "factor": {
+                        "format": "double",
+                        "type": "number"
+                    },
+                    "maturityDate": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "symbol": {
+                        "type": "string"
+                    },
+                    "variableRate": {
+                        "format": "double",
+                        "type": "number"
+                    }
+                },
+                "MutualFund": {
+                    "assetType": {
+                        "enum": [
+                            "EQUITY",
+                            "OPTION",
+                            "INDEX",
+                            "MUTUAL_FUND",
+                            "CASH_EQUIVALENT",
+                            "FIXED_INCOME",
+                            "CURRENCY"
+                        ],
+                        "type": "string"
+                    },
+                    "cusip": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "symbol": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "enum": [
+                            "NOT_APPLICABLE",
+                            "OPEN_END_NON_TAXABLE",
+                            "OPEN_END_TAXABLE",
+                            "NO_LOAD_NON_TAXABLE",
+                            "NO_LOAD_TAXABLE"
+                        ],
+                        "type": "string"
+                    }
+                },
+                "Option": {
+                    "assetType": {
+                        "enum": [
+                            "EQUITY",
+                            "OPTION",
+                            "INDEX",
+                            "MUTUAL_FUND",
+                            "CASH_EQUIVALENT",
+                            "FIXED_INCOME",
+                            "CURRENCY"
+                        ],
+                        "type": "string"
+                    },
+                    "cusip": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "optionDeliverables": {
+                        "items": {
+                            "properties": {
+                                "assetType": {
+                                    "enum": [
+                                        "EQUITY",
+                                        "OPTION",
+                                        "INDEX",
+                                        "MUTUAL_FUND",
+                                        "CASH_EQUIVALENT",
+                                        "FIXED_INCOME",
+                                        "CURRENCY"
+                                    ],
+                                    "type": "string"
+                                },
+                                "currencyType": {
+                                    "enum": [
+                                        "USD",
+                                        "CAD",
+                                        "EUR",
+                                        "JPY"
+                                    ],
+                                    "type": "string"
+                                },
+                                "deliverableUnits": {
+                                    "format": "double",
+                                    "type": "number"
+                                },
+                                "symbol": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "type": "array",
+                        "xml": {
+                            "name": "optionDeliverable",
+                            "wrapped": true
+                        }
+                    },
+                    "optionMultiplier": {
+                        "format": "int32",
+                        "type": "integer"
+                    },
+                    "putCall": {
+                        "enum": [
+                            "PUT",
+                            "CALL"
+                        ],
+                        "type": "string"
+                    },
+                    "symbol": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "enum": [
+                            "VANILLA",
+                            "BINARY",
+                            "BARRIER"
+                        ],
+                        "type": "string"
+                    },
+                    "underlyingSymbol": {
+                        "type": "string"
+                    }
+                }
+            },
+            "OrderActivity": {
+                "Execution": {
+                    "activityType": {
+                        "enum": [
+                            "EXECUTION",
+                            "ORDER_ACTION"
+                        ],
+                        "type": "string"
+                    },
+                    "executionLegs": {
+                        "items": {
+                            "properties": {
+                                "legId": {
+                                    "format": "int32",
+                                    "type": "integer"
+                                },
+                                "mismarkedQuantity": {
+                                    "format": "double",
+                                    "type": "number"
+                                },
+                                "price": {
+                                    "format": "double",
+                                    "type": "number"
+                                },
+                                "quantity": {
+                                    "format": "double",
+                                    "type": "number"
+                                },
+                                "time": {
+                                    "format": "date-time",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "type": "array",
+                        "xml": {
+                            "name": "executionLeg",
+                            "wrapped": true
+                        }
+                    },
+                    "executionType": {
+                        "enum": [
+                            "FILL"
+                        ],
+                        "type": "string"
+                    },
+                    "orderRemainingQuantity": {
+                        "format": "double",
+                        "type": "number"
+                    },
+                    "quantity": {
+                        "format": "double",
+                        "type": "number"
+                    }
+                }
+            }
+        },
+        "top": {
+            "ReplaceOrder": {
+                "accountId": {
+                    "format": "int64",
+                    "type": "integer"
+                },
+                "activationPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "cancelTime": {
+                    "properties": {
+                        "date": {
+                            "type": "string"
+                        },
+                        "shortFormat": {
+                            "default": false,
+                            "type": "boolean"
+                        }
+                    },
+                    "type": "object"
+                },
+                "cancelable": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "childOrderStrategies": {
+                    "type": "array",
+                    "xml": {
+                        "name": "childOrder",
+                        "wrapped": true
+                    }
+                },
+                "closeTime": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "complexOrderStrategyType": {
+                    "enum": [
+                        "NONE",
+                        "COVERED",
+                        "VERTICAL",
+                        "BACK_RATIO",
+                        "CALENDAR",
+                        "DIAGONAL",
+                        "STRADDLE",
+                        "STRANGLE",
+                        "COLLAR_SYNTHETIC",
+                        "BUTTERFLY",
+                        "CONDOR",
+                        "IRON_CONDOR",
+                        "VERTICAL_ROLL",
+                        "COLLAR_WITH_STOCK",
+                        "DOUBLE_DIAGONAL",
+                        "UNBALANCED_BUTTERFLY",
+                        "UNBALANCED_CONDOR",
+                        "UNBALANCED_IRON_CONDOR",
+                        "UNBALANCED_VERTICAL_ROLL",
+                        "CUSTOM"
+                    ],
+                    "type": "string"
+                },
+                "destinationLinkName": {
+                    "type": "string"
+                },
+                "duration": {
+                    "enum": [
+                        "DAY",
+                        "GOOD_TILL_CANCEL",
+                        "FILL_OR_KILL"
+                    ],
+                    "type": "string"
+                },
+                "editable": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "enteredTime": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "filledQuantity": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "orderActivityCollection": {
+                    "items": {
+                        "discriminator": "activityType",
+                        "properties": {
+                            "activityType": {
+                                "enum": [
+                                    "EXECUTION",
+                                    "ORDER_ACTION"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array",
+                    "xml": {
+                        "name": "orderActivity",
+                        "wrapped": true
+                    }
+                },
+                "orderId": {
+                    "format": "int64",
+                    "type": "integer"
+                },
+                "orderLegCollection": {
+                    "items": {
+                        "properties": {
+                            "instruction": {
+                                "enum": [
+                                    "BUY",
+                                    "SELL",
+                                    "BUY_TO_COVER",
+                                    "SELL_SHORT",
+                                    "BUY_TO_OPEN",
+                                    "BUY_TO_CLOSE",
+                                    "SELL_TO_OPEN",
+                                    "SELL_TO_CLOSE",
+                                    "EXCHANGE"
+                                ],
+                                "type": "string"
+                            },
+                            "instrument": {
+                                "discriminator": "assetType",
+                                "properties": {
+                                    "assetType": {
+                                        "enum": [
+                                            "EQUITY",
+                                            "OPTION",
+                                            "INDEX",
+                                            "MUTUAL_FUND",
+                                            "CASH_EQUIVALENT",
+                                            "FIXED_INCOME",
+                                            "CURRENCY"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "cusip": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "symbol": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "legId": {
+                                "format": "int64",
+                                "type": "integer"
+                            },
+                            "orderLegType": {
+                                "enum": [
+                                    "EQUITY",
+                                    "OPTION",
+                                    "INDEX",
+                                    "MUTUAL_FUND",
+                                    "CASH_EQUIVALENT",
+                                    "FIXED_INCOME",
+                                    "CURRENCY"
+                                ],
+                                "type": "string"
+                            },
+                            "positionEffect": {
+                                "enum": [
+                                    "OPENING",
+                                    "CLOSING",
+                                    "AUTOMATIC"
+                                ],
+                                "type": "string"
+                            },
+                            "quantity": {
+                                "format": "double",
+                                "type": "number"
+                            },
+                            "quantityType": {
+                                "enum": [
+                                    "ALL_SHARES",
+                                    "DOLLARS",
+                                    "SHARES"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array",
+                    "xml": {
+                        "name": "orderLeg",
+                        "wrapped": true
+                    }
+                },
+                "orderStrategyType": {
+                    "enum": [
+                        "SINGLE",
+                        "OCO",
+                        "TRIGGER"
+                    ],
+                    "type": "string"
+                },
+                "orderType": {
+                    "enum": [
+                        "MARKET",
+                        "LIMIT",
+                        "STOP",
+                        "STOP_LIMIT",
+                        "TRAILING_STOP",
+                        "MARKET_ON_CLOSE",
+                        "EXERCISE",
+                        "TRAILING_STOP_LIMIT",
+                        "NET_DEBIT",
+                        "NET_CREDIT",
+                        "NET_ZERO"
+                    ],
+                    "type": "string"
+                },
+                "price": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "priceLinkBasis": {
+                    "enum": [
+                        "MANUAL",
+                        "BASE",
+                        "TRIGGER",
+                        "LAST",
+                        "BID",
+                        "ASK",
+                        "ASK_BID",
+                        "MARK",
+                        "AVERAGE"
+                    ],
+                    "type": "string"
+                },
+                "priceLinkType": {
+                    "enum": [
+                        "VALUE",
+                        "PERCENT",
+                        "TICK"
+                    ],
+                    "type": "string"
+                },
+                "quantity": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "releaseTime": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "remainingQuantity": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "replacingOrderCollection": {
+                    "type": "array",
+                    "xml": {
+                        "name": "replacingOrder",
+                        "wrapped": true
+                    }
+                },
+                "requestedDestination": {
+                    "enum": [
+                        "INET",
+                        "ECN_ARCA",
+                        "CBOE",
+                        "AMEX",
+                        "PHLX",
+                        "ISE",
+                        "BOX",
+                        "NYSE",
+                        "NASDAQ",
+                        "BATS",
+                        "C2",
+                        "AUTO"
+                    ],
+                    "type": "string"
+                },
+                "session": {
+                    "enum": [
+                        "NORMAL",
+                        "AM",
+                        "PM",
+                        "SEAMLESS"
+                    ],
+                    "type": "string"
+                },
+                "specialInstruction": {
+                    "enum": [
+                        "ALL_OR_NONE",
+                        "DO_NOT_REDUCE",
+                        "ALL_OR_NONE_DO_NOT_REDUCE"
+                    ],
+                    "type": "string"
+                },
+                "status": {
+                    "enum": [
+                        "AWAITING_PARENT_ORDER",
+                        "AWAITING_CONDITION",
+                        "AWAITING_MANUAL_REVIEW",
+                        "ACCEPTED",
+                        "AWAITING_UR_OUT",
+                        "PENDING_ACTIVATION",
+                        "QUEUED",
+                        "WORKING",
+                        "REJECTED",
+                        "PENDING_CANCEL",
+                        "CANCELED",
+                        "PENDING_REPLACE",
+                        "REPLACED",
+                        "FILLED",
+                        "EXPIRED"
+                    ],
+                    "type": "string"
+                },
+                "statusDescription": {
+                    "type": "string"
+                },
+                "stopPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "stopPriceLinkBasis": {
+                    "enum": [
+                        "MANUAL",
+                        "BASE",
+                        "TRIGGER",
+                        "LAST",
+                        "BID",
+                        "ASK",
+                        "ASK_BID",
+                        "MARK",
+                        "AVERAGE"
+                    ],
+                    "type": "string"
+                },
+                "stopPriceLinkType": {
+                    "enum": [
+                        "VALUE",
+                        "PERCENT",
+                        "TICK"
+                    ],
+                    "type": "string"
+                },
+                "stopPriceOffset": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "stopType": {
+                    "enum": [
+                        "STANDARD",
+                        "BID",
+                        "ASK",
+                        "LAST",
+                        "MARK"
+                    ],
+                    "type": "string"
+                },
+                "taxLotMethod": {
+                    "enum": [
+                        "FIFO",
+                        "LIFO",
+                        "HIGH_COST",
+                        "LOW_COST",
+                        "AVERAGE_COST",
+                        "SPECIFIC_LOT"
+                    ],
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

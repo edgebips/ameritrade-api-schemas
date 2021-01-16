@@ -1,0 +1,553 @@
+{
+    "errors": {
+        "400": "An error message indicating the caller must pass a non null value in the parameter.",
+        "401": "Unauthorized",
+        "403": "Forbidden",
+        "404": "An error message indicating optionchain for the symbol was not found.",
+        "500": "An error message indicating internal error in the service."
+    },
+    "link": "https://api.tdameritrade.com/v1/marketdata/chains",
+    "method": "GET",
+    "query_params": {
+        "apikey": {
+            "description": "Pass your OAuth User ID to make an unauthenticated request for delayed data.",
+            "required": false
+        },
+        "contractType": {
+            "description": "Type of contracts to return in the chain. Can be CALL, PUT, or ALL. Default is ALL.",
+            "required": false
+        },
+        "daysToExpiration": {
+            "description": "Days to expiration to use in calculations. Applies only to ANALYTICAL strategy chains (see strategy param).",
+            "required": false
+        },
+        "expMonth": {
+            "description": "'Return only options expiring in the specified month. Month is given in the three character format.\nExample: JAN\nDefault is ALL.''",
+            "required": false
+        },
+        "fromDate": {
+            "description": "'Only return expirations after this date. For strategies, expiration refers to the nearest term expiration in the strategy. Valid ISO-8601 formats are: yyyy-MM-dd and yyyy-MM-dd'T'HH:mm:ssz.'",
+            "required": false
+        },
+        "includeQuotes": {
+            "description": "Include quotes for options in the option chain. Can be TRUE or FALSE. Default is FALSE.",
+            "required": false
+        },
+        "interestRate": {
+            "description": "Interest rate to use in calculations. Applies only to ANALYTICAL strategy chains (see strategy param).",
+            "required": false
+        },
+        "interval": {
+            "description": "Strike interval for spread strategy chains (see strategy param).",
+            "required": false
+        },
+        "optionType": {
+            "description": "'Type of contracts to return. Possible values are:\n\nS: Standard contracts\nNS: Non-standard contracts\nALL: All contracts\n\nDefault is ALL.''",
+            "required": false
+        },
+        "range": {
+            "description": "Returns options for the given range. Possible values are:\n\nITM: In-the-money\nNTM: Near-the-money\nOTM: Out-of-the-money\nSAK: Strikes Above Market\nSBK: Strikes Below Market\nSNK: Strikes Near Market\nALL: All Strikes\n\nDefault is ALL.",
+            "required": false
+        },
+        "strategy": {
+            "description": "Passing a value returns a Strategy Chain. Possible values are SINGLE, ANALYTICAL (allows use of the volatility, underlyingPrice, interestRate, and daysToExpiration params to calculate theoretical values), COVERED, VERTICAL, CALENDAR, STRANGLE, STRADDLE, BUTTERFLY, CONDOR, DIAGONAL, COLLAR, or ROLL. Default is SINGLE.",
+            "required": false
+        },
+        "strike": {
+            "description": "Provide a strike price to return options only at that strike price.",
+            "required": false
+        },
+        "strikeCount": {
+            "description": "The number of strikes to return above and below the at-the-money price.",
+            "required": false
+        },
+        "symbol": {
+            "description": "Enter one symbol",
+            "required": false
+        },
+        "toDate": {
+            "description": "'Only return expirations before this date. For strategies, expiration refers to the nearest term expiration in the strategy. Valid ISO-8601 formats are: yyyy-MM-dd and yyyy-MM-dd'T'HH:mm:ssz.'",
+            "required": false
+        },
+        "underlyingPrice": {
+            "description": "Underlying price to use in calculations. Applies only to ANALYTICAL strategy chains (see strategy param).",
+            "required": false
+        },
+        "volatility": {
+            "description": "Volatility to use in calculations. Applies only to ANALYTICAL strategy chains (see strategy param).",
+            "required": false
+        }
+    },
+    "response": {
+        "top": {
+            "ExpirationDate": {
+                "date": {
+                    "type": "string"
+                }
+            },
+            "Option": {
+                "askPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "askSize": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "bidPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "bidSize": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "closePrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "deliverableNote": {
+                    "type": "string"
+                },
+                "delta": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "exchangeName": {
+                    "type": "string"
+                },
+                "expirationDate": {
+                    "type": "string"
+                },
+                "expirationType": {
+                    "type": "string"
+                },
+                "gamma": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "highPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "isInTheMoney": {
+                    "type": "boolean"
+                },
+                "isIndexOption": {
+                    "type": "boolean"
+                },
+                "isMini": {
+                    "type": "boolean"
+                },
+                "isNonStandard": {
+                    "type": "boolean"
+                },
+                "lastPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "lastSize": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "lowPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "markChange": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "markPercentChange": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "markPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "multiplier": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "netChange": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "openInterest": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "openPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "optionDeliverablesList": {
+                    "items": {
+                        "properties": {
+                            "assetType": {
+                                "type": "string"
+                            },
+                            "currencyType": {
+                                "type": "string"
+                            },
+                            "deliverableUnits": {
+                                "type": "string"
+                            },
+                            "symbol": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "percentChange": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "putCall": {
+                    "enum": [
+                        "PUT",
+                        "CALL"
+                    ],
+                    "type": "string"
+                },
+                "quoteTimeInLong": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "rho": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "settlementType": {
+                    "type": "string"
+                },
+                "strikePrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "theoreticalOptionValue": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "theoreticalVolatility": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "theta": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "timeValue": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "totalVolume": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "tradeTimeInLong": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "vega": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "volatility": {
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "OptionChain": {
+                "callExpDateMap": {
+                    "additionalProperties": {
+                        "type": "object"
+                    },
+                    "type": "object"
+                },
+                "daysToExpiration": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "interestRate": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "interval": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "isDelayed": {
+                    "type": "boolean"
+                },
+                "isIndex": {
+                    "type": "boolean"
+                },
+                "putExpDateMap": {
+                    "additionalProperties": {
+                        "type": "object"
+                    },
+                    "type": "object"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "strategy": {
+                    "enum": [
+                        "SINGLE",
+                        "ANALYTICAL",
+                        "COVERED",
+                        "VERTICAL",
+                        "CALENDAR",
+                        "STRANGLE",
+                        "STRADDLE",
+                        "BUTTERFLY",
+                        "CONDOR",
+                        "DIAGONAL",
+                        "COLLAR",
+                        "ROLL"
+                    ],
+                    "type": "string"
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "underlying": {
+                    "properties": {
+                        "ask": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "askSize": {
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "bid": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "bidSize": {
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "change": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "close": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "delayed": {
+                            "type": "boolean"
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "exchangeName": {
+                            "enum": [
+                                "IND",
+                                "ASE",
+                                "NYS",
+                                "NAS",
+                                "NAP",
+                                "PAC",
+                                "OPR",
+                                "BATS"
+                            ],
+                            "type": "string"
+                        },
+                        "fiftyTwoWeekHigh": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "fiftyTwoWeekLow": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "highPrice": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "last": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "lowPrice": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "mark": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "markChange": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "markPercentChange": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "openPrice": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "percentChange": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "quoteTime": {
+                            "format": "int64",
+                            "type": "integer"
+                        },
+                        "symbol": {
+                            "type": "string"
+                        },
+                        "totalVolume": {
+                            "format": "int64",
+                            "type": "integer"
+                        },
+                        "tradeTime": {
+                            "format": "int64",
+                            "type": "integer"
+                        }
+                    },
+                    "type": "object"
+                },
+                "underlyingPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "volatility": {
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "OptionDeliverables": {
+                "assetType": {
+                    "type": "string"
+                },
+                "currencyType": {
+                    "type": "string"
+                },
+                "deliverableUnits": {
+                    "type": "string"
+                },
+                "symbol": {
+                    "type": "string"
+                }
+            },
+            "StrikePriceMap": null,
+            "Underlying": {
+                "ask": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "askSize": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "bid": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "bidSize": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "change": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "close": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "delayed": {
+                    "type": "boolean"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "exchangeName": {
+                    "enum": [
+                        "IND",
+                        "ASE",
+                        "NYS",
+                        "NAS",
+                        "NAP",
+                        "PAC",
+                        "OPR",
+                        "BATS"
+                    ],
+                    "type": "string"
+                },
+                "fiftyTwoWeekHigh": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "fiftyTwoWeekLow": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "highPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "last": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "lowPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "mark": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "markChange": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "markPercentChange": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "openPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "percentChange": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "quoteTime": {
+                    "format": "int64",
+                    "type": "integer"
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "totalVolume": {
+                    "format": "int64",
+                    "type": "integer"
+                },
+                "tradeTime": {
+                    "format": "int64",
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

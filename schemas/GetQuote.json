@@ -1,0 +1,905 @@
+{
+    "errors": {
+        "400": "An error message indicating the caller must pass a non null value in the parameter.",
+        "401": "An error message indicating the caller must pass a valid Authorization in the HTTP authorization request header.",
+        "403": "An error message indicating the caller is forbidden from accessing this page.",
+        "404": "An error message indicating the instrument for the symbol/cusip was not found."
+    },
+    "link": "https://api.tdameritrade.com/v1/marketdata/{symbol}/quotes",
+    "method": "GET",
+    "query_params": {
+        "apikey": {
+            "description": "Pass your OAuth User ID to make an unauthenticated request for delayed data.",
+            "required": false
+        }
+    },
+    "response": {
+        "top": {
+            "ETF": {
+                "52WkHigh": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "52WkLow": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "askId": {
+                    "type": "string"
+                },
+                "askPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "askSize": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "bidId": {
+                    "type": "string"
+                },
+                "bidPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "bidSize": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "closePrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "digits": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "divAmount": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "divDate": {
+                    "type": "string"
+                },
+                "divYield": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "exchange": {
+                    "type": "string"
+                },
+                "exchangeName": {
+                    "type": "string"
+                },
+                "highPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "lastId": {
+                    "type": "string"
+                },
+                "lastPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "lastSize": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "lowPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "marginable": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "mark": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "netChange": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "openPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "peRatio": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "quoteTimeInLong": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "regularMarketLastPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "regularMarketLastSize": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "regularMarketNetChange": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "regularMarketTradeTimeInLong": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "securityStatus": {
+                    "type": "string"
+                },
+                "shortable": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "totalVolume": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "tradeTimeInLong": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "volatility": {
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "Equity": {
+                "52WkHigh": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "52WkLow": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "askId": {
+                    "type": "string"
+                },
+                "askPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "askSize": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "bidId": {
+                    "type": "string"
+                },
+                "bidPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "bidSize": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "closePrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "digits": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "divAmount": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "divDate": {
+                    "type": "string"
+                },
+                "divYield": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "exchange": {
+                    "type": "string"
+                },
+                "exchangeName": {
+                    "type": "string"
+                },
+                "highPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "lastId": {
+                    "type": "string"
+                },
+                "lastPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "lastSize": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "lowPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "marginable": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "mark": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "netChange": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "openPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "peRatio": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "quoteTimeInLong": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "regularMarketLastPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "regularMarketLastSize": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "regularMarketNetChange": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "regularMarketTradeTimeInLong": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "securityStatus": {
+                    "type": "string"
+                },
+                "shortable": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "totalVolume": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "tradeTimeInLong": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "volatility": {
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "Forex": {
+                "52WkHighInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "52WkLowInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "askPriceInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "bidPriceInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "changeInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "closePriceInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "digits": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "exchange": {
+                    "type": "string"
+                },
+                "exchangeName": {
+                    "type": "string"
+                },
+                "highPriceInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "isTradable": {
+                    "type": "boolean"
+                },
+                "lastPriceInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "lowPriceInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "mark": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "marketMaker": {
+                    "type": "string"
+                },
+                "openPriceInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "percentChange": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "product": {
+                    "type": "string"
+                },
+                "securityStatus": {
+                    "type": "string"
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "tick": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "tickAmount": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "tradingHours": {
+                    "type": "string"
+                }
+            },
+            "Future": {
+                "askId": {
+                    "type": "string"
+                },
+                "askPriceInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "bidId": {
+                    "type": "string"
+                },
+                "bidPriceInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "changeInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "closePriceInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "exchange": {
+                    "type": "string"
+                },
+                "exchangeName": {
+                    "type": "string"
+                },
+                "futureActiveSymbol": {
+                    "type": "string"
+                },
+                "futureExpirationDate": {
+                    "type": "string"
+                },
+                "futureIsActive": {
+                    "type": "boolean"
+                },
+                "futureIsTradable": {
+                    "type": "boolean"
+                },
+                "futureMultiplier": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "futurePercentChange": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "futurePriceFormat": {
+                    "type": "string"
+                },
+                "futureSettlementPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "futureTradingHours": {
+                    "type": "string"
+                },
+                "highPriceInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "lastId": {
+                    "type": "string"
+                },
+                "lastPriceInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "lowPriceInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "mark": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "openInterest": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "openPriceInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "product": {
+                    "type": "string"
+                },
+                "securityStatus": {
+                    "type": "string"
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "tick": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "tickAmount": {
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "Future Options": {
+                "askPriceInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "bidPriceInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "closePriceInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "contractType": {
+                    "type": "string"
+                },
+                "deltaInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "digits": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "exchangeName": {
+                    "type": "string"
+                },
+                "exerciseType": {
+                    "type": "string"
+                },
+                "expirationType": {
+                    "type": "string"
+                },
+                "futureExpirationDate": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "futureIsActive": {
+                    "type": "boolean"
+                },
+                "futureIsTradable": {
+                    "type": "boolean"
+                },
+                "futurePercentChange": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "futureTradingHours": {
+                    "type": "string"
+                },
+                "gammaInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "highPriceInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "inTheMoney": {
+                    "type": "boolean"
+                },
+                "lastPriceInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "lowPriceInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "mark": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "moneyIntrinsicValueInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "multiplierInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "netChangeInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "openInterest": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "openPriceInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "rhoInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "securityStatus": {
+                    "type": "string"
+                },
+                "strikePriceInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "thetaInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "tick": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "tickAmount": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "timeValueInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "underlying": {
+                    "type": "string"
+                },
+                "vegaInDouble": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "volatility": {
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "Index": {
+                "52WkHigh": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "52WkLow": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "closePrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "digits": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "exchange": {
+                    "type": "string"
+                },
+                "exchangeName": {
+                    "type": "string"
+                },
+                "highPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "lastPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "lowPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "netChange": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "openPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "securityStatus": {
+                    "type": "string"
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "totalVolume": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "tradeTimeInLong": {
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "Mutual Fund": {
+                "52WkHigh": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "52WkLow": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "closePrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "digits": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "divAmount": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "divDate": {
+                    "type": "string"
+                },
+                "divYield": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "exchange": {
+                    "type": "string"
+                },
+                "exchangeName": {
+                    "type": "string"
+                },
+                "nAV": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "netChange": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "peRatio": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "securityStatus": {
+                    "type": "string"
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "totalVolume": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "tradeTimeInLong": {
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "Option": {
+                "askPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "askSize": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "bidPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "bidSize": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "closePrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "contractType": {
+                    "type": "string"
+                },
+                "deliverables": {
+                    "type": "string"
+                },
+                "delta": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "exchange": {
+                    "type": "string"
+                },
+                "exchangeName": {
+                    "type": "string"
+                },
+                "gamma": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "highPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "lastPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "lastSize": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "lowPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "mark": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "moneyIntrinsicValue": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "multiplier": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "netChange": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "openInterest": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "openPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "quoteTimeInLong": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "rho": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "securityStatus": {
+                    "type": "string"
+                },
+                "settlementType": {
+                    "type": "string"
+                },
+                "strikePrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "theoreticalOptionValue": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "theta": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "timeValue": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "totalVolume": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "tradeTimeInLong": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "underlying": {
+                    "type": "string"
+                },
+                "underlyingPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "uvExpirationType": {
+                    "type": "string"
+                },
+                "vega": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "volatility": {
+                    "format": "double",
+                    "type": "number"
+                }
+            }
+        }
+    }
+}

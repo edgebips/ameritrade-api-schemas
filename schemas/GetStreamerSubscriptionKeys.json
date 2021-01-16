@@ -1,0 +1,33 @@
+{
+    "errors": {
+        "400": "An error message indicating the validation problem with the request.",
+        "401": "An error message indicating the caller must pass a valid AuthToken in the HTTP authorization request header.",
+        "500": "An error message indicating there was an unexpected server error.",
+        "503": "An error message indicating there is a temporary problem responding."
+    },
+    "link": "https://api.tdameritrade.com/v1/userprincipals/streamersubscriptionkeys",
+    "method": "GET",
+    "query_params": {
+        "accountIds": {
+            "description": "A comma separated string of account IDs, to fetch subscription keys for each of them.",
+            "required": false
+        }
+    },
+    "response": {
+        "top": {
+            "SubscriptionKey": {
+                "keys": {
+                    "items": {
+                        "properties": {
+                            "key": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            }
+        }
+    }
+}

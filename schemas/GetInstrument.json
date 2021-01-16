@@ -1,0 +1,464 @@
+{
+    "errors": {
+        "401": "Unauthorized",
+        "403": "Forbidden",
+        "404": "An error message indicating the instrument for the symbol/cusip was not found."
+    },
+    "link": "https://api.tdameritrade.com/v1/instruments/{cusip}",
+    "method": "GET",
+    "query_params": {
+        "apikey": {
+            "description": "Pass your OAuth User IDto make an unauthenticated request for delayed data.",
+            "required": false
+        }
+    },
+    "response": {
+        "top": {
+            "Bond": {
+                "assetType": {
+                    "enum": [
+                        "BOND"
+                    ],
+                    "type": "string"
+                },
+                "bondPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "cusip": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "exchange": {
+                    "type": "string"
+                },
+                "symbol": {
+                    "type": "string"
+                }
+            },
+            "Fundamental": {
+                "assetType": {
+                    "enum": [
+                        "EQUITY",
+                        "ETF",
+                        "MUTUAL_FUND",
+                        "UNKNOWN"
+                    ],
+                    "type": "string"
+                },
+                "cusip": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "exchange": {
+                    "type": "string"
+                },
+                "fundamental": {
+                    "properties": {
+                        "beta": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "bookValuePerShare": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "currentRatio": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "divGrowthRate3Year": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "dividendAmount": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "dividendDate": {
+                            "type": "string"
+                        },
+                        "dividendPayAmount": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "dividendPayDate": {
+                            "type": "string"
+                        },
+                        "dividendYield": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "epsChange": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "epsChangePercentTTM": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "epsChangeYear": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "epsTTM": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "grossMarginMRQ": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "grossMarginTTM": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "high52": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "interestCoverage": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "low52": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "ltDebtToEquity": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "marketCap": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "marketCapFloat": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "netProfitMarginMRQ": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "netProfitMarginTTM": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "operatingMarginMRQ": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "operatingMarginTTM": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "pbRatio": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "pcfRatio": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "peRatio": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "pegRatio": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "prRatio": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "quickRatio": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "returnOnAssets": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "returnOnEquity": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "returnOnInvestment": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "revChangeIn": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "revChangeTTM": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "revChangeYear": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "sharesOutstanding": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "shortIntDayToCover": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "shortIntToFloat": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "symbol": {
+                            "type": "string"
+                        },
+                        "totalDebtToCapital": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "totalDebtToEquity": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "vol10DayAvg": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "vol1DayAvg": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "vol3MonthAvg": {
+                            "format": "double",
+                            "type": "number"
+                        }
+                    },
+                    "type": "object"
+                },
+                "symbol": {
+                    "type": "string"
+                }
+            },
+            "FundamentalData": {
+                "beta": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "bookValuePerShare": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "currentRatio": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "divGrowthRate3Year": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "dividendAmount": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "dividendDate": {
+                    "type": "string"
+                },
+                "dividendPayAmount": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "dividendPayDate": {
+                    "type": "string"
+                },
+                "dividendYield": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "epsChange": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "epsChangePercentTTM": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "epsChangeYear": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "epsTTM": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "grossMarginMRQ": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "grossMarginTTM": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "high52": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "interestCoverage": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "low52": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "ltDebtToEquity": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "marketCap": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "marketCapFloat": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "netProfitMarginMRQ": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "netProfitMarginTTM": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "operatingMarginMRQ": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "operatingMarginTTM": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "pbRatio": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "pcfRatio": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "peRatio": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "pegRatio": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "prRatio": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "quickRatio": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "returnOnAssets": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "returnOnEquity": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "returnOnInvestment": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "revChangeIn": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "revChangeTTM": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "revChangeYear": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "sharesOutstanding": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "shortIntDayToCover": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "shortIntToFloat": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "totalDebtToCapital": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "totalDebtToEquity": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "vol10DayAvg": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "vol1DayAvg": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "vol3MonthAvg": {
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "Instrument": {
+                "assetType": {
+                    "enum": [
+                        "EQUITY",
+                        "ETF",
+                        "FOREX",
+                        "FUTURE",
+                        "FUTURE_OPTION",
+                        "INDEX",
+                        "INDICATOR",
+                        "MUTUAL_FUND",
+                        "OPTION",
+                        "UNKNOWN"
+                    ],
+                    "type": "string"
+                },
+                "cusip": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "exchange": {
+                    "type": "string"
+                },
+                "symbol": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

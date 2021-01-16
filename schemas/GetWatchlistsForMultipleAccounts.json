@@ -1,0 +1,94 @@
+{
+    "errors": {
+        "401": "An error message indicating the caller must pass a valid Authorization in the HTTP authorization request header.",
+        "500": "An error message indicating there was an unexpected server error."
+    },
+    "link": "https://api.tdameritrade.com/v1/accounts/watchlists",
+    "method": "GET",
+    "query_params": {},
+    "response": {
+        "top": {
+            "Watchlist": {
+                "accountId": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "status": {
+                    "enum": [
+                        "UNCHANGED",
+                        "CREATED",
+                        "UPDATED",
+                        "DELETED"
+                    ],
+                    "type": "string"
+                },
+                "watchlistId": {
+                    "type": "string"
+                },
+                "watchlistItems": {
+                    "items": {
+                        "properties": {
+                            "averagePrice": {
+                                "format": "double",
+                                "minimum": 0,
+                                "type": "number"
+                            },
+                            "commission": {
+                                "format": "double",
+                                "minimum": 0,
+                                "type": "number"
+                            },
+                            "instrument": {
+                                "properties": {
+                                    "assetType": {
+                                        "enum": [
+                                            "EQUITY",
+                                            "OPTION",
+                                            "MUTUAL_FUND",
+                                            "FIXED_INCOME",
+                                            "INDEX"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "symbol": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "purchasedDate": {
+                                "type": "object"
+                            },
+                            "quantity": {
+                                "format": "double",
+                                "type": "number"
+                            },
+                            "sequenceId": {
+                                "format": "int32",
+                                "minimum": 0,
+                                "type": "integer"
+                            },
+                            "status": {
+                                "enum": [
+                                    "UNCHANGED",
+                                    "CREATED",
+                                    "UPDATED",
+                                    "DELETED"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "required": true,
+                    "type": "array"
+                }
+            }
+        }
+    }
+}

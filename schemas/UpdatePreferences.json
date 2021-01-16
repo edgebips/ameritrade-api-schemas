@@ -1,0 +1,139 @@
+{
+    "errors": {
+        "400": "An error message indicating the validation problem with the request.",
+        "401": "An error message indicating the caller must pass a valid AuthToken in the HTTP authorization request header.",
+        "403": "An error message indicating the caller is forbidden from accessing this resource.",
+        "500": "An error message indicating there was an unexpected server error.",
+        "503": "An error message indicating there is a temporary problem responding."
+    },
+    "link": "https://api.tdameritrade.com/v1/accounts/{accountId}/preferences",
+    "method": "PUT",
+    "query_params": {},
+    "request": {
+        "top": {
+            "UpdatePreferences": {
+                "authTokenTimeout": {
+                    "enum": [
+                        "FIFTY_FIVE_MINUTES",
+                        "TWO_HOURS",
+                        "FOUR_HOURS",
+                        "EIGHT_HOURS"
+                    ],
+                    "type": "string"
+                },
+                "defaultAdvancedToolLaunch": {
+                    "enum": [
+                        "TA",
+                        "N",
+                        "Y",
+                        "TOS",
+                        "NONE",
+                        "CC2"
+                    ],
+                    "type": "string"
+                },
+                "defaultEquityOrderDuration": {
+                    "enum": [
+                        "DAY",
+                        "GOOD_TILL_CANCEL",
+                        "NONE"
+                    ],
+                    "type": "string"
+                },
+                "defaultEquityOrderLegInstruction": {
+                    "enum": [
+                        "BUY",
+                        "SELL",
+                        "BUY_TO_COVER",
+                        "SELL_SHORT",
+                        "NONE"
+                    ],
+                    "type": "string"
+                },
+                "defaultEquityOrderMarketSession": {
+                    "enum": [
+                        "AM",
+                        "PM",
+                        "NORMAL",
+                        "SEAMLESS",
+                        "NONE"
+                    ],
+                    "type": "string"
+                },
+                "defaultEquityOrderPriceLinkType": {
+                    "enum": [
+                        "VALUE",
+                        "PERCENT",
+                        "NONE"
+                    ],
+                    "type": "string"
+                },
+                "defaultEquityOrderType": {
+                    "enum": [
+                        "MARKET",
+                        "LIMIT",
+                        "STOP",
+                        "STOP_LIMIT",
+                        "TRAILING_STOP",
+                        "MARKET_ON_CLOSE",
+                        "NONE"
+                    ],
+                    "type": "string"
+                },
+                "defaultEquityQuantity": {
+                    "format": "int32",
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "directEquityRouting": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "directOptionsRouting": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "equityTaxLotMethod": {
+                    "enum": [
+                        "FIFO",
+                        "LIFO",
+                        "HIGH_COST",
+                        "LOW_COST",
+                        "MINIMUM_TAX",
+                        "AVERAGE_COST",
+                        "NONE"
+                    ],
+                    "type": "string"
+                },
+                "expressTrading": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "mutualFundTaxLotMethod": {
+                    "enum": [
+                        "FIFO",
+                        "LIFO",
+                        "HIGH_COST",
+                        "LOW_COST",
+                        "MINIMUM_TAX",
+                        "AVERAGE_COST",
+                        "NONE"
+                    ],
+                    "type": "string"
+                },
+                "optionTaxLotMethod": {
+                    "enum": [
+                        "FIFO",
+                        "LIFO",
+                        "HIGH_COST",
+                        "LOW_COST",
+                        "MINIMUM_TAX",
+                        "AVERAGE_COST",
+                        "NONE"
+                    ],
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

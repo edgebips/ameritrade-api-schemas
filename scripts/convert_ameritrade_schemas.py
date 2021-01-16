@@ -5,17 +5,28 @@ This script doesn't just read JSON files, it has to interpret the comments
 inserted by the Ameritrade Java developers. I wish they thought about API
 writers and provided a parseable description of their API, but they don't.
 """
+__author__ = 'Martin Blais <blais@furius.ca>'
+__license__ = "GNU GPLv2"
 
 from os import path
 from typing import Callable, Any, Iterable, Iterator, Union, Dict, List, Tuple
 import argparse
+import hashlib
 import json
 import logging
 import os
 import pprint
-import tempfile
-import subprocess
 import re
+import subprocess
+import tempfile
+
+
+# Raw downloads scraped from the site.
+_ROOT = path.normpath(path.dirname(path.dirname(__file__)))
+DEFAULT_INPUT = path.join(_ROOT, 'raw')
+
+# Sanitized and versions output that can be processed.
+DEFAULT_OUTPUT = path.join(_ROOT, 'schemas')
 
 
 JSON = Union[str, int, float, Dict[str, 'JSON'], List['JSON']]
@@ -155,34 +166,64 @@ def ReadJsonWithComments(filename: str) -> JSON:
         return output
 
 
-def ParseSchemas(schemas_dir: str) -> List[Tuple[str, Any, Any]]:
+def ParseSchemas(raw_dir: str) -> List[Tuple[str, Any, Any]]:
     """Parse the schemas. Return a list of (request, response) dicts."""
     # Walk two levels of schema dirs.
     rrpairs = []
-    for root, dirs, files in os.walk(schemas_dir):
+    for root, dirs, files in os.walk(raw_dir):
         if dirs:
             continue
-        endpoint = path.basename(root)
+        endpoint_name = path.basename(root)
 
-        # Parse the contents of a single endpoint.
-        request = ReadJson(path.join(root, 'request.json'))
-        response = ReadJsonWithComments(path.join(root, 'response.json'))
+        # Read a JSON describing the high-level endpoint URL, method and query
+        # parameters, and embed the possible error codes in it.
+        endpoint = ReadJson(path.join(root, 'endpoint.json'))
         errcodes = ReadJson(path.join(root, 'errcodes.json'))
-        response['errors'] = errcodes
-        rrpairs.append((endpoint, request, response))
+        endpoint['errors'] = errcodes
+
+        # TODO(blais): Infer and embeddling the data types for the URL
+        # parameters, and also for the query parameters. Convert them to their
+        # JSON schema equivalents.
+
+        # Parse the request, if present.
+        filename = path.join(root, 'request.json')
+        if path.exists(filename):
+            endpoint['request'] = ReadJsonWithComments(path.join(root, 'request.json'))
+
+        # Parse the response, if present.
+        filename = path.join(root, 'response.json')
+        response = None
+        if path.exists(filename):
+            endpoint['response'] = ReadJsonWithComments(path.join(root, 'response.json'))
+
+        rrpairs.append((endpoint_name, endpoint))
     return rrpairs
 
 
 def main():
     logging.basicConfig(level=logging.INFO, format='%(levelname)-8s: %(message)s')
     parser = argparse.ArgumentParser(description=__doc__.strip())
+    parser.add_argument('--raw_downloaded_data', action='store',
+                        default=DEFAULT_INPUT,
+                        help="Directory path to read the raw downloaded data from.")
+    parser.add_argument('--output', action='store',
+                        default=DEFAULT_OUTPUT,
+                        help="Directory path to write the clean, sanitized version to.")
     args = parser.parse_args()
 
-    # Iterator over all the files downloaded by the scraping script.
-    root = path.dirname(path.dirname(__file__))
-    schemas_root = path.join(root, "ameritrade", "schemas")
-    for endpoint, request, response in ParseSchemas(schemas_root):
-        pprint.pprint(request)
+    # Iterator over all the files downloaded by the scraping script, sanitize
+    # and coalesce each of the raw files into a single JSON tuple out to a
+    # single file describing the service endpoint.
+    os.makedirs(args.output, exist_ok=True)
+    for name, endpoint in ParseSchemas(args.raw_downloaded_data):
+        logging.info("Processing %s", name)
+        filename = path.join(args.output, "{}.json".format(name))
+        with open(filename, 'w') as outfile:
+            json.dump(endpoint, outfile, sort_keys=True, indent=4)
+
+    # Produce a single unique hash of all the cleaned up input data as a version
+    # number. This is not an integer, but a hash of the input; if the input is
+    # identical, the hash won't change.
 
 
 if __name__ == '__main__':

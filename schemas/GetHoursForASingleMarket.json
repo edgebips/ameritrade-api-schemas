@@ -1,0 +1,68 @@
+{
+    "errors": {
+        "401": "Unauthorized",
+        "403": "Forbidden",
+        "404": "Not Found"
+    },
+    "link": "https://api.tdameritrade.com/v1/marketdata/{market}/hours",
+    "method": "GET",
+    "query_params": {
+        "apikey": {
+            "description": "Pass your OAuth User ID to make an unauthenticated request for delayed data.",
+            "required": false
+        },
+        "date": {
+            "description": "\"The date for which market hours information is requested. Valid ISO-8601 formats are : yyyy-MM-dd and yyyy-MM-dd'T'HH:mm:ssz.\"",
+            "required": false
+        }
+    },
+    "response": {
+        "top": {
+            "Hours": {
+                "category": {
+                    "type": "string"
+                },
+                "date": {
+                    "type": "string"
+                },
+                "exchange": {
+                    "type": "string"
+                },
+                "isOpen": {
+                    "type": "boolean"
+                },
+                "marketType": {
+                    "enum": [
+                        "BOND",
+                        "EQUITY",
+                        "ETF",
+                        "FOREX",
+                        "FUTURE",
+                        "FUTURE_OPTION",
+                        "INDEX",
+                        "INDICATOR",
+                        "MUTUAL_FUND",
+                        "OPTION",
+                        "UNKNOWN"
+                    ],
+                    "type": "string"
+                },
+                "product": {
+                    "type": "string"
+                },
+                "productName": {
+                    "type": "string"
+                },
+                "sessionHours": {
+                    "additionalProperties": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

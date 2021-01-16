@@ -1,0 +1,38 @@
+{
+    "errors": {
+        "400": "An error message indicating the validation problem with the request.",
+        "401": "An error message indicating the caller must pass valid credentials in the request body.",
+        "403": "An error message indicating the caller doesn't have access to the account in the request.",
+        "500": "An error message indicating there was an unexpected server error.",
+        "503": "An error message indicating there is a temporary problem responding."
+    },
+    "link": "https://api.tdameritrade.com/v1/oauth2/token",
+    "method": "POST",
+    "query_params": {},
+    "request": {
+        "top": {
+            "EASObject": {
+                "access_token": {
+                    "type": "string"
+                },
+                "expires_in": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "refresh_token": {
+                    "type": "string"
+                },
+                "refresh_token_expires_in": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "scope": {
+                    "type": "string"
+                },
+                "token_type": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

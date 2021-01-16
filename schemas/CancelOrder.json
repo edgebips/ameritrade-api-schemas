@@ -1,0 +1,13 @@
+{
+    "errors": {
+        "400": "An error message indicating the validation problem with the request.",
+        "401": "An error message indicating the caller must pass a valid AuthToken in the HTTP authorization request header.",
+        "403": "An error message indicating the caller is forbidden from accessing this page.",
+        "404": "An error message if the order was not found.",
+        "500": "An error message indicating there was an unexpected server error."
+    },
+    "link": "https://api.tdameritrade.com/v1/accounts/{accountId}/orders/{orderId}",
+    "method": "DELETE",
+    "query_params": {},
+    "request": {}
+}
