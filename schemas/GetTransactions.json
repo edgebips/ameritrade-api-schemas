@@ -10,19 +10,27 @@
     "query_params": {
         "endDate": {
             "description": "Only transactions before the End Date will be returned.\nNote: The maximum date range is one year. Valid ISO-8601 formats are :\nyyyy-MM-dd.",
-            "required": false
+            "format": "int64",
+            "required": false,
+            "type": "integer"
         },
         "startDate": {
             "description": "Only transactions after the Start Date will be returned.\nNote: The maximum date range is one year. Valid ISO-8601 formats are :\nyyyy-MM-dd.",
-            "required": false
+            "format": "int64",
+            "required": false,
+            "type": "integer"
         },
         "symbol": {
             "description": "Only transactions with the specified symbol will be returned.",
-            "required": false
+            "format": "int64",
+            "required": false,
+            "type": "integer"
         },
         "type": {
             "description": "Only transactions with the specified type will be returned.",
-            "required": false
+            "format": "int64",
+            "required": false,
+            "type": "integer"
         }
     },
     "response": {

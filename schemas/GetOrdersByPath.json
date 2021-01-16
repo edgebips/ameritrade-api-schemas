@@ -9,19 +9,27 @@
     "query_params": {
         "fromEnteredTime": {
             "description": "Specifies that no orders entered before this time should be returned. Valid ISO-8601 formats are :\nyyyy-MM-dd. Date must be within 60 days from today's date. 'toEnteredTime' must also be set.",
-            "required": false
+            "format": "int64",
+            "required": false,
+            "type": "integer"
         },
         "maxResults": {
             "description": "The max number of orders to retrieve.",
-            "required": false
+            "format": "int64",
+            "required": false,
+            "type": "integer"
         },
         "status": {
             "description": "Specifies that only orders of this status should be returned.",
-            "required": false
+            "format": "int64",
+            "required": false,
+            "type": "integer"
         },
         "toEnteredTime": {
             "description": "Specifies that no orders entered after this time should be returned.Valid ISO-8601 formats are :\nyyyy-MM-dd. 'fromEnteredTime' must also be set.",
-            "required": false
+            "format": "int64",
+            "required": false,
+            "type": "integer"
         }
     },
     "response": {

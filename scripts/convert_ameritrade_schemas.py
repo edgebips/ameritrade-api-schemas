@@ -190,6 +190,13 @@ def ParseSchemas(raw_dir: str) -> List[Tuple[str, Any, Any]]:
             param_name = match.group(1)
             url_params[param_name] = parameters.URL_PARAM_TYPES[param_name]
 
+        # Infer and embed the data types of the query parameters. Insert them
+        # into the descriptions and required fields from the already fetched
+        # query params description.
+        for name, value in endpoint['query_params'].items():
+            dtype = parameters.URL_PARAM_TYPES[param_name]
+            value.update(dtype)
+
         # Parse the request, if present.
         filename = path.join(root, 'request.json')
         if path.exists(filename):

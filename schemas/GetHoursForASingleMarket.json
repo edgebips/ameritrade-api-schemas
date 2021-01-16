@@ -8,11 +8,13 @@
     "query_params": {
         "apikey": {
             "description": "Pass your OAuth User ID to make an unauthenticated request for delayed data.",
-            "required": false
+            "required": false,
+            "type": "string"
         },
         "date": {
             "description": "\"The date for which market hours information is requested. Valid ISO-8601 formats are : yyyy-MM-dd and yyyy-MM-dd'T'HH:mm:ssz.\"",
-            "required": false
+            "required": false,
+            "type": "string"
         }
     },
     "response": {
