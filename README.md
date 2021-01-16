@@ -5,13 +5,23 @@ from the TD Ameritrade API webpage from:
 
     https://developer.tdameritrade.com/apis
 
-The schemas aren't available for a number of
-years and they don't change very frequently (but they do, to some extent), but
-it's possible with some scraping magic to pull them in.
+The schemas haven't been available since the API launched and they don't change
+very frequently (but they do a few times per year), but it's possible with some
+scraping magic to pull them in.
 
 The schemas from the pages aren't proper JSON, they are interspersed with
 comments. The scripts here do minimal cleaning in order to produce valid,
 parseable JSON schema files.
+
+## Why this Is Useful
+
+You can use this in a number of ways:
+
+- Validate your outoging messages and check on the responses;
+- Generate code bindings and/or converters/parsers for your favorite language.
+
+In particular, gernerating serializable messages will make it easy to store
+serial binary logs with the original messages sent back and forth for analysis.
 
 ## How to Use
 
