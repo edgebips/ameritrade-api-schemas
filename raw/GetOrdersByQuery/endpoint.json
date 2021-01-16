@@ -1,5 +1,4 @@
 {
-    "link": "https://api.tdameritrade.com/v1/orders",
     "method": "GET",
     "query_params": {
         "accountId": {
@@ -22,5 +21,6 @@
             "description": "Specifies that no orders entered after this time should be returned.Valid ISO-8601 formats are :\nyyyy-MM-dd. 'fromEnteredTime' must also be set.",
             "required": false
         }
-    }
+    },
+    "url": "https://api.tdameritrade.com/v1/orders"
 }

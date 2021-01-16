@@ -1,5 +1,4 @@
 {
-    "link": "https://api.tdameritrade.com/v1/instruments",
     "method": "GET",
     "query_params": {
         "apikey": {
@@ -14,5 +13,6 @@
             "description": "Value to pass to the search. See projection description for more information.",
             "required": true
         }
-    }
+    },
+    "url": "https://api.tdameritrade.com/v1/instruments"
 }

@@ -1,5 +1,4 @@
 {
-    "link": "https://api.tdameritrade.com/v1/marketdata/{symbol}/pricehistory",
     "method": "GET",
     "query_params": {
         "apikey": {
@@ -34,5 +33,6 @@
             "description": "Start date as milliseconds since epoch. If startDate and endDate are provided, period should not be provided.",
             "required": false
         }
-    }
+    },
+    "url": "https://api.tdameritrade.com/v1/marketdata/{symbol}/pricehistory"
 }

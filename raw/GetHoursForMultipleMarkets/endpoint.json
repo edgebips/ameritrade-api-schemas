@@ -1,5 +1,4 @@
 {
-    "link": "https://api.tdameritrade.com/v1/marketdata/hours",
     "method": "GET",
     "query_params": {
         "apikey": {
@@ -14,5 +13,6 @@
             "description": "The markets for which you're requesting market hours, comma-separated. Valid markets are EQUITY, OPTION, FUTURE, BOND, or FOREX.",
             "required": false
         }
-    }
+    },
+    "url": "https://api.tdameritrade.com/v1/marketdata/hours"
 }

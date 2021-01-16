@@ -65,9 +65,9 @@ def GetEndpoints(driver: WebDriver, trace: bool = False) -> Dict[str, str]:
         driver.get(catlink)
         for row in driver.find_elements_by_class_name('views-row'):
             link = row.find_element_by_tag_name('a').get_attribute('href')
-            method, funcname, apilink = row.text.splitlines()[:3]
+            method, funcname, url = row.text.splitlines()[:3]
             funcname = CleanName(funcname.strip())
-            endpoints.append((catname, funcname, method, apilink, link))
+            endpoints.append((catname, funcname, method, url, link))
     if trace:
         pprint.pprint(endpoints)
 
@@ -158,7 +158,7 @@ def main():
     # (we'll post-process, to minimize traffic on the site from re-runs).
     if not path.exists(args.output):
         os.makedirs(args.output)
-    for catname, funcname, method, apilink, link in endpoints:
+    for catname, funcname, method, url, link in endpoints:
         logging.info("Processing: %s %s", method, link)
 
         # Open the page.
@@ -175,7 +175,7 @@ def main():
         query_params = GetQueryParameters(driver)
         endpoint = {
             'method': method,
-            'link': apilink,
+            'url': url,
             'query_params': query_params,
         }
         # TODO(blais): Also fetch and add the description and other information

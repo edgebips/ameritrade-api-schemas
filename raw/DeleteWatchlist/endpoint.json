@@ -1,5 +1,5 @@
 {
-    "link": "https://api.tdameritrade.com/v1/accounts/{accountId}/watchlists/{watchlistId}",
     "method": "DELETE",
-    "query_params": {}
+    "query_params": {},
+    "url": "https://api.tdameritrade.com/v1/accounts/{accountId}/watchlists/{watchlistId}"
 }

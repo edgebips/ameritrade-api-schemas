@@ -182,9 +182,9 @@ def ParseSchemas(raw_dir: str) -> List[Tuple[str, Any, Any]]:
         errcodes = ReadJson(path.join(root, 'errcodes.json'))
         endpoint['errors'] = errcodes
 
-        # TODO(blais): Infer and embeddling the data types for the URL
-        # parameters, and also for the query parameters. Convert them to their
-        # JSON schema equivalents.
+        # TODO(blais): Infer and embed the data types for the URL parameters,
+        # and also for the query parameters. Convert them to their JSON schema
+        # equivalents.
 
         # Parse the request, if present.
         filename = path.join(root, 'request.json')

@@ -1,5 +1,4 @@
 {
-    "link": "https://api.tdameritrade.com/v1/marketdata/chains",
     "method": "GET",
     "query_params": {
         "apikey": {
@@ -70,5 +69,6 @@
             "description": "Volatility to use in calculations. Applies only to ANALYTICAL strategy chains (see strategy param).",
             "required": false
         }
-    }
+    },
+    "url": "https://api.tdameritrade.com/v1/marketdata/chains"
 }

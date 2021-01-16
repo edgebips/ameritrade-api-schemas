@@ -1,5 +1,4 @@
 {
-    "link": "https://api.tdameritrade.com/v1/marketdata/{market}/hours",
     "method": "GET",
     "query_params": {
         "apikey": {
@@ -10,5 +9,6 @@
             "description": "\"The date for which market hours information is requested. Valid ISO-8601 formats are : yyyy-MM-dd and yyyy-MM-dd'T'HH:mm:ssz.\"",
             "required": false
         }
-    }
+    },
+    "url": "https://api.tdameritrade.com/v1/marketdata/{market}/hours"
 }

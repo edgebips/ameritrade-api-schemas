@@ -1,10 +1,10 @@
 {
-    "link": "https://api.tdameritrade.com/v1/instruments/{cusip}",
     "method": "GET",
     "query_params": {
         "apikey": {
             "description": "Pass your OAuth User IDto make an unauthenticated request for delayed data.",
             "required": false
         }
-    }
+    },
+    "url": "https://api.tdameritrade.com/v1/instruments/{cusip}"
 }

@@ -1,5 +1,4 @@
 {
-    "link": "https://api.tdameritrade.com/v1/marketdata/{index}/movers",
     "method": "GET",
     "query_params": {
         "apikey": {
@@ -14,5 +13,6 @@
             "description": "To return movers with the specified directions of up or down",
             "required": false
         }
-    }
+    },
+    "url": "https://api.tdameritrade.com/v1/marketdata/{index}/movers"
 }

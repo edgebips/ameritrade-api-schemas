@@ -1,5 +1,4 @@
 {
-    "link": "https://api.tdameritrade.com/v1/accounts/{accountId}/transactions",
     "method": "GET",
     "query_params": {
         "endDate": {
@@ -18,5 +17,6 @@
             "description": "Only transactions with the specified type will be returned.",
             "required": false
         }
-    }
+    },
+    "url": "https://api.tdameritrade.com/v1/accounts/{accountId}/transactions"
 }
