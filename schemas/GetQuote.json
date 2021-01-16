@@ -5,7 +5,6 @@
         "403": "An error message indicating the caller is forbidden from accessing this page.",
         "404": "An error message indicating the instrument for the symbol/cusip was not found."
     },
-    "link": "https://api.tdameritrade.com/v1/marketdata/{symbol}/quotes",
     "method": "GET",
     "query_params": {
         "apikey": {
@@ -900,6 +899,12 @@
                     "type": "number"
                 }
             }
+        }
+    },
+    "url": "https://api.tdameritrade.com/v1/marketdata/{symbol}/quotes",
+    "url_params": {
+        "symbol": {
+            "type": "string"
         }
     }
 }

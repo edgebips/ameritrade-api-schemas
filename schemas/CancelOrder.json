@@ -6,8 +6,18 @@
         "404": "An error message if the order was not found.",
         "500": "An error message indicating there was an unexpected server error."
     },
-    "link": "https://api.tdameritrade.com/v1/accounts/{accountId}/orders/{orderId}",
     "method": "DELETE",
     "query_params": {},
-    "request": {}
+    "request": {},
+    "url": "https://api.tdameritrade.com/v1/accounts/{accountId}/orders/{orderId}",
+    "url_params": {
+        "accountId": {
+            "format": "int64",
+            "type": "integer"
+        },
+        "orderId": {
+            "format": "int64",
+            "type": "integer"
+        }
+    }
 }

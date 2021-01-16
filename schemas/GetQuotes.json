@@ -6,7 +6,6 @@
         "404": "An error message indicating the instrument for the symbol/cusip was not found.",
         "406": "An error message indicating an issue in the symbol regex, or number of symbols searched is over the maximum."
     },
-    "link": "https://api.tdameritrade.com/v1/marketdata/quotes",
     "method": "GET",
     "query_params": {
         "apikey": {
@@ -906,5 +905,7 @@
                 }
             }
         }
-    }
+    },
+    "url": "https://api.tdameritrade.com/v1/marketdata/quotes",
+    "url_params": {}
 }

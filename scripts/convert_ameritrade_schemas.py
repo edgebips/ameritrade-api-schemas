@@ -167,6 +167,42 @@ def ReadJsonWithComments(filename: str) -> JSON:
         return output
 
 
+# Type definitions for all the know URL params.
+URL_PARAM_TYPES = {
+    'accountId': {
+        "format": "int64",
+        "type": "integer"
+    },
+    'cusip': {
+        "type": "string"
+    },
+    'index': {
+        "type": "string"
+    },
+    'market': {
+        "type": "string"
+    },
+    'orderId': {
+        "format": "int64",
+        "type": "integer"
+    },
+    'savedOrderId': {
+        "format": "int64",
+        "type": "integer"
+    },
+    'symbol': {
+        "type": "string"
+    },
+    'transactionId': {
+        "format": "int64",
+        "type": "integer"
+    },
+    'watchlistId': {
+        "type": "string"
+    },
+}
+
+
 def ParseSchemas(raw_dir: str) -> List[Tuple[str, Any, Any]]:
     """Parse the schemas. Return a list of (request, response) dicts."""
     # Walk two levels of schema dirs.
@@ -182,9 +218,14 @@ def ParseSchemas(raw_dir: str) -> List[Tuple[str, Any, Any]]:
         errcodes = ReadJson(path.join(root, 'errcodes.json'))
         endpoint['errors'] = errcodes
 
-        # TODO(blais): Infer and embed the data types for the URL parameters,
-        # and also for the query parameters. Convert them to their JSON schema
-        # equivalents.
+        # Infer and embed the data types for the URL parameters. Convert them to
+        # their JSON schema equivalents.
+        url_params = endpoint['url_params'] = {}
+        for match in re.finditer('{(.*?)}', endpoint['url']):
+            param_name = match.group(1)
+            url_params[param_name] = URL_PARAM_TYPES[param_name]
+
+        # TODO(blais): Also convert the query parameters.
 
         # Parse the request, if present.
         filename = path.join(root, 'request.json')

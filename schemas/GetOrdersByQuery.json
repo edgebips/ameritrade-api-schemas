@@ -5,7 +5,6 @@
         "403": "An error message indicating the caller is forbidden from accessing this page.",
         "500": "An error message indicating there was an unexpected server error."
     },
-    "link": "https://api.tdameritrade.com/v1/orders",
     "method": "GET",
     "query_params": {
         "accountId": {
@@ -677,5 +676,7 @@
                 }
             }
         }
-    }
+    },
+    "url": "https://api.tdameritrade.com/v1/orders",
+    "url_params": {}
 }

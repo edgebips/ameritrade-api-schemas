@@ -4,7 +4,6 @@
         "401": "An error message indicating the caller must pass a valid Authorization in the HTTP authorization request header.",
         "500": "An error message indicating there was an unexpected server error."
     },
-    "link": "https://api.tdameritrade.com/v1/accounts/{accountId}/watchlists",
     "method": "POST",
     "query_params": {},
     "request": {
@@ -57,6 +56,13 @@
                     "type": "array"
                 }
             }
+        }
+    },
+    "url": "https://api.tdameritrade.com/v1/accounts/{accountId}/watchlists",
+    "url_params": {
+        "accountId": {
+            "format": "int64",
+            "type": "integer"
         }
     }
 }

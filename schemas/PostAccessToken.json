@@ -6,7 +6,6 @@
         "500": "An error message indicating there was an unexpected server error.",
         "503": "An error message indicating there is a temporary problem responding."
     },
-    "link": "https://api.tdameritrade.com/v1/oauth2/token",
     "method": "POST",
     "query_params": {},
     "request": {
@@ -34,5 +33,7 @@
                 }
             }
         }
-    }
+    },
+    "url": "https://api.tdameritrade.com/v1/oauth2/token",
+    "url_params": {}
 }

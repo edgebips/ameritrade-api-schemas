@@ -6,7 +6,6 @@
         "404": "An error message if the order was not found.",
         "500": "An error message indicating there was an unexpected server error."
     },
-    "link": "https://api.tdameritrade.com/v1/accounts/{accountId}/orders/{orderId}",
     "method": "PUT",
     "query_params": {},
     "request": {
@@ -653,6 +652,17 @@
                     "type": "string"
                 }
             }
+        }
+    },
+    "url": "https://api.tdameritrade.com/v1/accounts/{accountId}/orders/{orderId}",
+    "url_params": {
+        "accountId": {
+            "format": "int64",
+            "type": "integer"
+        },
+        "orderId": {
+            "format": "int64",
+            "type": "integer"
         }
     }
 }

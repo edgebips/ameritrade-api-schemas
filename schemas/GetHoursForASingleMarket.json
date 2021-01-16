@@ -4,7 +4,6 @@
         "403": "Forbidden",
         "404": "Not Found"
     },
-    "link": "https://api.tdameritrade.com/v1/marketdata/{market}/hours",
     "method": "GET",
     "query_params": {
         "apikey": {
@@ -63,6 +62,12 @@
                     "type": "object"
                 }
             }
+        }
+    },
+    "url": "https://api.tdameritrade.com/v1/marketdata/{market}/hours",
+    "url_params": {
+        "market": {
+            "type": "string"
         }
     }
 }

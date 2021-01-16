@@ -7,7 +7,6 @@
         "500": "An error message indicating there was an unexpected server error.",
         "503": "An error message indicating there is a temporary problem responding."
     },
-    "link": "https://api.tdameritrade.com/v1/accounts/{accountId}/transactions/{transactionId}",
     "method": "GET",
     "query_params": {},
     "response": {
@@ -198,6 +197,17 @@
                     "type": "string"
                 }
             }
+        }
+    },
+    "url": "https://api.tdameritrade.com/v1/accounts/{accountId}/transactions/{transactionId}",
+    "url_params": {
+        "accountId": {
+            "format": "int64",
+            "type": "integer"
+        },
+        "transactionId": {
+            "format": "int64",
+            "type": "integer"
         }
     }
 }

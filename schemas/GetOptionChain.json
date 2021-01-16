@@ -6,7 +6,6 @@
         "404": "An error message indicating optionchain for the symbol was not found.",
         "500": "An error message indicating internal error in the service."
     },
-    "link": "https://api.tdameritrade.com/v1/marketdata/chains",
     "method": "GET",
     "query_params": {
         "apikey": {
@@ -549,5 +548,7 @@
                 }
             }
         }
-    }
+    },
+    "url": "https://api.tdameritrade.com/v1/marketdata/chains",
+    "url_params": {}
 }

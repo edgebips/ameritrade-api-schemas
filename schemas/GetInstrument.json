@@ -4,7 +4,6 @@
         "403": "Forbidden",
         "404": "An error message indicating the instrument for the symbol/cusip was not found."
     },
-    "link": "https://api.tdameritrade.com/v1/instruments/{cusip}",
     "method": "GET",
     "query_params": {
         "apikey": {
@@ -459,6 +458,12 @@
                     "type": "string"
                 }
             }
+        }
+    },
+    "url": "https://api.tdameritrade.com/v1/instruments/{cusip}",
+    "url_params": {
+        "cusip": {
+            "type": "string"
         }
     }
 }
