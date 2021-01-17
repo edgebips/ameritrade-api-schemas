@@ -10,71 +10,88 @@
     "query_params": {
         "apikey": {
             "description": "Pass your OAuth User ID to make an unauthenticated request for delayed data.",
-            "required": false
+            "required": false,
+            "type": "string"
         },
         "contractType": {
             "description": "Type of contracts to return in the chain. Can be CALL, PUT, or ALL. Default is ALL.",
-            "required": false
+            "required": false,
+            "type": "string"
         },
         "daysToExpiration": {
             "description": "Days to expiration to use in calculations. Applies only to ANALYTICAL strategy chains (see strategy param).",
-            "required": false
+            "required": false,
+            "type": "string"
         },
         "expMonth": {
             "description": "'Return only options expiring in the specified month. Month is given in the three character format.\nExample: JAN\nDefault is ALL.''",
-            "required": false
+            "required": false,
+            "type": "string"
         },
         "fromDate": {
             "description": "'Only return expirations after this date. For strategies, expiration refers to the nearest term expiration in the strategy. Valid ISO-8601 formats are: yyyy-MM-dd and yyyy-MM-dd'T'HH:mm:ssz.'",
-            "required": false
+            "required": false,
+            "type": "string"
         },
         "includeQuotes": {
             "description": "Include quotes for options in the option chain. Can be TRUE or FALSE. Default is FALSE.",
-            "required": false
+            "required": false,
+            "type": "string"
         },
         "interestRate": {
             "description": "Interest rate to use in calculations. Applies only to ANALYTICAL strategy chains (see strategy param).",
-            "required": false
+            "required": false,
+            "type": "string"
         },
         "interval": {
             "description": "Strike interval for spread strategy chains (see strategy param).",
-            "required": false
+            "required": false,
+            "type": "string"
         },
         "optionType": {
             "description": "'Type of contracts to return. Possible values are:\n\nS: Standard contracts\nNS: Non-standard contracts\nALL: All contracts\n\nDefault is ALL.''",
-            "required": false
+            "required": false,
+            "type": "string"
         },
         "range": {
             "description": "Returns options for the given range. Possible values are:\n\nITM: In-the-money\nNTM: Near-the-money\nOTM: Out-of-the-money\nSAK: Strikes Above Market\nSBK: Strikes Below Market\nSNK: Strikes Near Market\nALL: All Strikes\n\nDefault is ALL.",
-            "required": false
+            "required": false,
+            "type": "string"
         },
         "strategy": {
             "description": "Passing a value returns a Strategy Chain. Possible values are SINGLE, ANALYTICAL (allows use of the volatility, underlyingPrice, interestRate, and daysToExpiration params to calculate theoretical values), COVERED, VERTICAL, CALENDAR, STRANGLE, STRADDLE, BUTTERFLY, CONDOR, DIAGONAL, COLLAR, or ROLL. Default is SINGLE.",
-            "required": false
+            "required": false,
+            "type": "string"
         },
         "strike": {
             "description": "Provide a strike price to return options only at that strike price.",
-            "required": false
+            "required": false,
+            "type": "string"
         },
         "strikeCount": {
             "description": "The number of strikes to return above and below the at-the-money price.",
-            "required": false
+            "required": false,
+            "type": "string"
         },
         "symbol": {
             "description": "Enter one symbol",
-            "required": false
+            "required": false,
+            "type": "string"
         },
         "toDate": {
             "description": "'Only return expirations before this date. For strategies, expiration refers to the nearest term expiration in the strategy. Valid ISO-8601 formats are: yyyy-MM-dd and yyyy-MM-dd'T'HH:mm:ssz.'",
-            "required": false
+            "required": false,
+            "type": "string"
         },
         "underlyingPrice": {
             "description": "Underlying price to use in calculations. Applies only to ANALYTICAL strategy chains (see strategy param).",
-            "required": false
+            "required": false,
+            "type": "string"
         },
         "volatility": {
             "description": "Volatility to use in calculations. Applies only to ANALYTICAL strategy chains (see strategy param).",
-            "required": false
+            "required": false,
+            "type": "string"
         }
     },
     "response": {

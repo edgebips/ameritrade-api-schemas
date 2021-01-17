@@ -8,15 +8,18 @@
     "query_params": {
         "apikey": {
             "description": "(Optional) Pass your Client ID if making an unauthenticated request",
-            "required": false
+            "required": false,
+            "type": "string"
         },
         "date": {
             "description": "\"The date for which market hours information is requested. Valid ISO-8601 formats are : yyyy-MM-dd and yyyy-MM-dd'T'HH:mm:ssz.\"",
-            "required": false
+            "required": false,
+            "type": "string"
         },
         "markets": {
             "description": "The markets for which you're requesting market hours, comma-separated. Valid markets are EQUITY, OPTION, FUTURE, BOND, or FOREX.",
-            "required": false
+            "required": false,
+            "type": "string"
         }
     },
     "response": {

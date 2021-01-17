@@ -8,7 +8,8 @@
     "query_params": {
         "apikey": {
             "description": "Pass your OAuth User IDto make an unauthenticated request for delayed data.",
-            "required": false
+            "required": false,
+            "type": "string"
         }
     },
     "response": {

@@ -9,7 +9,8 @@
     "query_params": {
         "accountIds": {
             "description": "A comma separated string of account IDs, to fetch subscription keys for each of them.",
-            "required": false
+            "required": false,
+            "type": "string"
         }
     },
     "response": {
