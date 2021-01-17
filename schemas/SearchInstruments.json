@@ -10,15 +10,21 @@
     "query_params": {
         "apikey": {
             "description": "Pass your OAuth User ID to make an unauthenticated request for delayed data.",
-            "required": false
+            "format": "int64",
+            "required": false,
+            "type": "integer"
         },
         "projection": {
             "description": "'The type of request:\n\nsymbol-search: Retrieve instrument data of a specific symbol or cusip\n\nsymbol-regex: Retrieve instrument data for all symbols matching regex. Example: symbol=XYZ.* will return all symbols beginning with XYZ\n\ndesc-search: Retrieve instrument data for instruments whose description contains the word supplied. Example: symbol=FakeCompany will return all instruments with FakeCompany in the description.\n\ndesc-regex: Search description with full regex support. Example: symbol=XYZ.[A-C] returns all instruments whose descriptions contain a word beginning with XYZ followed by a character A through C.\n\nfundamental: Returns fundamental data for a single instrument specified by exact symbol.'",
-            "required": true
+            "format": "int64",
+            "required": true,
+            "type": "integer"
         },
         "symbol": {
             "description": "Value to pass to the search. See projection description for more information.",
-            "required": true
+            "format": "int64",
+            "required": true,
+            "type": "integer"
         }
     },
     "response": {

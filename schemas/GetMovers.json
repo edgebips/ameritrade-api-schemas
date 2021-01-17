@@ -9,15 +9,18 @@
     "query_params": {
         "apikey": {
             "description": "Pass your OAuth User ID to make an unauthenticated request for delayed data.",
-            "required": false
+            "required": false,
+            "type": "string"
         },
         "change": {
             "description": "To return movers with the specified change types of percent or value",
-            "required": false
+            "required": false,
+            "type": "string"
         },
         "direction": {
             "description": "To return movers with the specified directions of up or down",
-            "required": false
+            "required": false,
+            "type": "string"
         }
     },
     "response": {

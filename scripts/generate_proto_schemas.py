@@ -17,7 +17,13 @@ import subprocess
 import io
 import re
 
-import convert_ameritrade_schemas
+
+# Sanitized and cleaned up schemas.
+_ROOT = path.normpath(path.dirname(path.dirname(__file__)))
+DEFAULT_INPUT = path.join(_ROOT, 'schemas')
+
+# Equivalent protocol buffer schemas
+DEFAULT_OUTPUT = path.join(_ROOT, 'protos')
 
 
 def PrintHeader(pr):
@@ -136,19 +142,37 @@ def ConvertJSONSchema(clsname: str, json_schema: Any, pr: Callable[[str], Any]) 
 def main():
     logging.basicConfig(level=logging.INFO, format='%(levelname)-8s: %(message)s')
     parser = argparse.ArgumentParser(description=__doc__.strip())
+    parser.add_argument('--clean_schemas', action='store',
+                        default=DEFAULT_INPUT,
+                        help="Directory path to read the raw downloaded data from.")
+    parser.add_argument('--output', action='store',
+                        default=DEFAULT_OUTPUT,
+                        help=("Directory path to write the corresponding protocol buffer "
+                              "schemas."))
     args = parser.parse_args()
 
+    codes = {}
+
     # Iterator over all the files downloaded by the scraping script.
-    root = path.dirname(path.dirname(__file__))
-    schemas_root = path.join(root, "ameritrade", "schemas")
-    for endpoint, request, response in convert_ameritrade_schemas.ParseSchemas(schemas_root):
-        print("-" * 32, endpoint)
-        string = ProcessResponse(endpoint, response)
-        print(string)
-        #break
+    for filename in os.listdir(args.clean_schemas):
+        if not re.match(r"[A-Z].*.json", filename):
+            continue
+        with open(path.join(args.clean_schemas, filename)) as infile:
+            schema = json.load(infile)
 
+        print(schema['url'])
+        print(schema['url_params'])
+        print(schema['query_params'])
+        # for code, description in schema['errors'].items():
+        #     codes.setdefault(code, set()).add(description)
 
-    # TODO(blais): This is incomplete.
+    pprint.pprint(codes)
+
+    # for endpoint, request, response in convert_ameritrade_schemas.ParseSchemas(schemas_root):
+    #     print("-" * 32, endpoint)
+    #     string = ProcessResponse(endpoint, response)
+    #     print(string)
+    #     #break
 
 
 if __name__ == '__main__':
