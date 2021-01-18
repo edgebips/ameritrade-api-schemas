@@ -4,7 +4,7 @@
 # TODO(blais): DO NOT RUN. THIS ISN'T COMPLETE YET.
 
 from os import path
-from typing import Callable, Any, Iterable, Iterator, Union, Dict, List, Tuple
+from typing import Callable, Any, Iterable, Iterator, Union, Dict, List, Tuple, Optional
 import argparse
 import json
 import logging
@@ -27,119 +27,39 @@ _ROOT = path.normpath(path.dirname(path.dirname(__file__)))
 DEFAULT_INPUT = path.join(_ROOT, 'schemas')
 
 # Equivalent protocol buffer schemas
-DEFAULT_OUTPUT = path.join(_ROOT, 'protos')
+DEFAULT_OUTPUT = path.join(_ROOT, 'proto', 'ameritrade.proto')
 
 
-def PrintHeader(pr):
-    pr('// -*- mode: protobuf -*-')
-    pr('// THIS FILE IS AUTO-GENERATED.')
-    pr()
-    pr('syntax = "proto2";')
-    pr()
-    pr('package beancount;')
-    pr()
+class TypeCallback:
+    """A handler for each possible type seen in the schemas.
 
+    This must be able to handle the following genericized types seen across all
+    of the schemas:
 
-def ProcessResponse(clsname: str, response: Dict[str, Any]):
-    """Process an augmented response dict."""
+      array {'type': 'array', 'xml': {'name': 'ITEM_TYPENAME', 'wrapped': True}, 'items': 'ITEM_TYPE...'}
+      array {'items': 'ITEM_TYPE...', 'type': 'array'}
+      boolean {'default': False, 'type': 'boolean'}
+      boolean {'type': 'boolean'}
+      integer {'format': 'int64', 'type': 'integer'}
+      integer {'format': 'int32', 'type': 'integer'}
+      integer {'format': 'int32', 'minimum': 0, 'type': 'integer'}
+      number {'format': 'double', 'type': 'number'}
+      number {'format': 'double', 'minimum': 0, 'type': 'number'}
+      object {'type': 'object', 'properties': {}}
+      object {'discriminator': 'DISCRIMINATOR', 'properties': {}, 'type': 'object'}
+      object {'additionalProperties': 'ADD_PROP_TYPE...', 'type': 'object'}
+      string {'enum': ['ENUMS...'], 'type': 'string'}
+      string {'type': 'string'}
+      string {'format': 'date-time', 'type': 'string'}
 
-    # Print the header.
-    oss = io.StringIO()
-    pr = functools.partial(print, file=oss)
-    PrintHeader(pr)
-    pr("message {} {{".format(clsname))
-    pr()
-
-    if 'top' in response:
-        for name, json_schema in response['top'].items():
-            proto_schema = ConvertJSONSchema(name, json_schema, pr)
-            pr(proto_schema)
-
-    # Output error codes.
-    pr("  enum Error {")
-    for index, (code, message) in enumerate(response['errors'].items(), 1):
-        for line in textwrap.wrap(message, 60):
-            pr("    // {}".format(line))
-        pr("    HTTP_{} = {:d};".format(code, index))
-    pr("  }")
-    pr("  optional Error error_code = 1;")
-    pr("}")
-
-    return oss.getvalue()
-
-
-## TODO(blais): This work is incomplete.
-def ConvertJSONSchema(clsname: str, json_schema: Any, pr: Callable[[str], Any]) -> str:
-    """Convert a JSON schema to a proto schema."""
-
-    # TODO(blais):
-    if json_schema is None:
-        return ''
-
-
-    pr("message {} {{".format(clsname))
-    jdict_templates = set()
-    for fname, jdict in json_schema.items():
-        jtype = jdict['type']
-
-        try:
-            jdictcopy = jdict.copy()
-            if jtype == 'object':
-                if 'properties' in jdictcopy:
-                    jdictcopy['properties'] = ()
-                if 'additionalProperties' in jdictcopy:
-                    jdictcopy['additionalProperties'] = ()
-            if 'enum' in jdictcopy:
-                jdictcopy['enum'] = ()
-            jdict_templates.add(tuple(jdictcopy.items()))
-        except TypeError:
-            pprint(jdictcopy)
-            raise
-        continue
-
-        pcard = 'optional'
-        pdefault = None
-        if jtype == 'string':
-            ptype = 'string'
-            if 'format' in jdict:
-                jformat = jdict['format']
-                if jformat == 'date-time':
-                    ptype = 'string'
-                else:
-                    raise  NotImplementedError("Unknown format: {}".format(jformat))
-
-            if 'enum' in jdict:
-                ptype = 'enum'
-                # TODO(blais): parse values.
-
-        elif jtype == 'number' or jtype == 'integer':
-            ptype = jdict['format']
-
-        elif jtype == 'boolean':
-            ptype = 'boolean'
-            pdefault = jdict['default']
-
-        elif jtype == 'array':
-            xml = jdict['xml']
-            if 'items' in jdict:
-                items = jdict['items']
-            ptype = 'Object'
-            pcard = 'repeated'
-
-        elif jtype == 'object':
-            ptype = fname.capitalize()
-            # TODO(blais): Continue
-
-        else:
-            raise NotImplementedError("Unknown type: {}".format(jtype))
-
-        sdefault = ' [default = {}]'.format(pdefault) if pdefault is not None else ''
-        pr("  {} {} {} = 1{};".format(pcard, ptype, fname, sdefault))
-    pr("}")
-
-
-    for template in sorted(jdict_templates):
-        print(template)
+    """
+    def Boolean(self, dtype): pass
+    def Integer(self, dtype): pass
+    def Float(self, dtype): pass
+    def String(self, dtype): pass
+    def Enum(self, dtype): pass
+    def Object(self, dtype): pass
+    def Array(self, dtype): pass
 
 
 # An accumulator for the validation used to store accumulations of various tidbits.
@@ -229,6 +149,7 @@ def ValidateType(dtype, parent_name: str, name: str, accum: ValidAccum):
             # 'replacingOrder' subtypes. Resolve those manually here.
             # TODO(blais): Remedy this manually here.
             logging.warning("MISSING SUBTYPE: {}".format(ctype))
+            dtype['items'] = {}
         else:
             subtype_map = {'ARRAY_ITEMS': ctype['items']}
         ctype['items'] = "ITEM_TYPE..."
@@ -237,6 +158,7 @@ def ValidateType(dtype, parent_name: str, name: str, accum: ValidAccum):
             # That's another abnormality which occcurs only for watchlists.
             # TODO(blais): Remedy this manually here.
             logging.warning("MISSING XML: {}".format(ctype))
+            dtype['xml'] = {'name': '__UNKNOWN'}
         else:
             ctype['xml']['name'] = "ITEM_TYPENAME"
 
@@ -357,6 +279,13 @@ def ValidateSchemas(dirname: str) -> ValidatedTypes:
             named_types[top_name].append((endpoint_name, "top", top_type))
             ValidateTypeMap(top_type, top_name, accum)
 
+    # Print all the unique type signatures to handle.
+    print("-" * 120)
+    print("Type signatures")
+    for sig in sorted(accum.type_signatures.values(), key=lambda x: x['type']):
+        print(sig['type'],sig)
+
+
     # Check that all the types with the same name have precisely the same
     # definition. With the message renamings abov this passes, which means we
     # can substantially simplify the entire final schema by factoring out these
@@ -381,7 +310,7 @@ def ValidateSchemas(dirname: str) -> ValidatedTypes:
                     json.dump(value, outfile, sort_keys=True, indent=4)
 
         CheckAllEqual([v[2] for v in value_list], "type.{}".format(name))
-    unique_named_types = {key: value[0] for key, value in named_types.items()}
+    unique_named_types = {key: typelist[0][2] for key, typelist in named_types.items()}
 
     # Finally, check that all the discriminator enums are consistently defined.
     for enum_name, value_list in accum.disc_enums.items():
@@ -389,7 +318,7 @@ def ValidateSchemas(dirname: str) -> ValidatedTypes:
 
     # The other enums aren't, e.g., there
     unique_named_enums = {}
-    for enum_name, value_list in accum.enums.items():
+    for (_, enum_name), value_list in accum.enums.items():
         # Enums aren't unique; make them unique by their set of values and
         # assign them unique names.
         unique_sets = {}
@@ -400,7 +329,7 @@ def ValidateSchemas(dirname: str) -> ValidatedTypes:
             unique_sets[hsh.digest()] = value
 
         for index, evalues in enumerate(sorted(unique_sets.values()), start=1):
-            key = "{}{}".format(enum_name, index) if len(unique_sets) == 1 else enum_name
+            key = enum_name if len(unique_sets) == 1 else "{}{}".format(enum_name, index)
             unique_named_enums[key] = evalues
         #CheckAllEqual(unique_value_list, "enum.{}".format(enum_name))
 
@@ -426,6 +355,84 @@ def ValidateSchemas(dirname: str) -> ValidatedTypes:
 
 
 
+def PrintHeader(pr):
+    pr('// -*- mode: protobuf -*-')
+    pr('// THIS FILE IS AUTO-GENERATED.')
+
+    if True:
+        pr('')
+        pr("// WARNING: THIS ISN'T WORKING YET. DO NOT USE.")
+        pr('')
+    pr()
+    pr('syntax = "proto2";')
+    pr()
+    pr('package ameritrade;')
+    pr()
+
+
+def Capitalize(string):
+    return string[0].capitalize() + string[1:]
+
+
+def GetProtoType(fname, ftype) -> Optional[str]:
+    if not ftype:
+        return None
+    if ftype['type'] == 'boolean':
+        return 'bool'
+    elif ftype['type'] == 'integer':
+        return ftype['format']
+    elif ftype['type'] == 'number':
+        return ftype['format']
+    elif ftype['type'] == 'string':
+        if 'enum' in ftype:
+            return Capitalize(fname)  # TODO(blais):
+        else:
+            return 'string'
+    elif ftype['type'] == 'object':
+        if 'discriminator' in ftype:
+            return 'oneof'  # TODO(blais):
+        elif 'properties' in ftype:
+            fname = re.sub('([a-zA-Z])', lambda x: x.groups()[0].upper(), fname, 1)
+            return Capitalize(fname)  # TODO(blais):
+        elif 'additionalProperties' in ftype:
+            return Capitalize(fname)  # TODO(blais):
+    elif ftype['type'] == 'array':
+        return GetProtoType(ftype['xml']['name'], ftype['items'])
+    else:
+        raise NotImplementedError(str(ftype))
+
+
+def GenerateEnum(pr, ename, evalues):
+    pr("enum {} {{".format(Capitalize(ename)))
+    for tag, value in enumerate(evalues, 1):
+        pr("  {} = {};".format(value, tag))
+    pr("}")
+
+
+def GenerateType(pr, dname, dtype):
+    pr("message {} {{".format(dname))
+    for tag, (fname, ftype) in enumerate(dtype.items(), start=1):
+        pcard = 'repeated' if 'array' in ftype else 'optional'
+        ptype = GetProtoType(fname, ftype)
+        pr("  {} {} {} = {};".format(pcard, ptype, fname, tag))
+
+        # if 'top' in response:
+        #     for name, json_schema in response['top'].items():
+        #         proto_schema = ConvertJSONSchema(name, json_schema, pr)
+        #         pr(proto_schema)
+
+        # # Output error codes.
+        # pr("  enum Error {")
+        # for index, (code, message) in enumerate(response['errors'].items(), 1):
+        #     for line in textwrap.wrap(message, 60):
+        #         pr("    // {}".format(line))
+        #     pr("    HTTP_{} = {:d};".format(code, index))
+        # pr("  }")
+        # pr("  optional Error error_code = 1;")
+
+    pr("}")
+
+
 def main():
     logging.basicConfig(level=logging.INFO, format='%(levelname)-8s: %(message)s')
     parser = argparse.ArgumentParser(description=__doc__.strip())
@@ -438,52 +445,24 @@ def main():
                               "schemas."))
     args = parser.parse_args()
 
+    # Validate and deduplicate and clean the types.
     valid_types = ValidateSchemas(args.clean_schemas)
 
+    # Convert to a proto schema.
+    oss = io.StringIO()
+    pr = functools.partial(print, file=oss)
+    PrintHeader(pr)
+    for ename, evalues in sorted(valid_types.enums.items()):
+        GenerateEnum(pr, ename, evalues)
+        pr()
+    for dname, dtype in sorted(valid_types.types.items()):
+        GenerateType(pr, dname, dtype)
+        pr()
+    with open(args.output, "w") as outfile:
+        outfile.write(oss.getvalue())
 
 
-
-    # for endpoint, request, response in convert_ameritrade_schemas.ParseSchemas(schemas_root):
-    #     print("-" * 32, endpoint)
-    #     string = ProcessResponse(endpoint, response)
-    #     print(string)
-    #     #break
 
 
 if __name__ == '__main__':
     main()
-
-
-
-"""
-                "XXXCollection": {
-                    "items": {
-                        "type": "object"
-                        "discriminator": "activityType",
-                        "properties": {
-                            "activityType": {
-                                "enum": [ ... ],
-                                "type": "string"
-                            }
-                        },
-                    },
-                    "type": "array",
-                    "xml": {
-                        "name": "XXX",
-                        "wrapped": true
-                    }
-                },
-
-
-{
-                                "type": "object"
-                                "discriminator": "assetType",
-                                "properties": {
-                                    "assetType": {
-                                        "enum": [...],
-                                        "type": "string"
-                                    },
-                                    ...
-                                },
-                            }
-"""

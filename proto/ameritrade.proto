@@ -1,0 +1,1328 @@
+// -*- mode: protobuf -*-
+// THIS FILE IS AUTO-GENERATED.
+
+// WARNING: THIS ISN'T WORKING YET. DO NOT USE.
+
+
+syntax = "proto2";
+
+package ameritrade;
+
+enum AchStatus {
+  Approved = 1;
+  Rejected = 2;
+  Cancel = 3;
+  Error = 4;
+}
+
+enum ActivityType {
+  EXECUTION = 1;
+  ORDER_ACTION = 2;
+}
+
+enum AssetType {
+  EQUITY = 1;
+  ETF = 2;
+  FOREX = 3;
+  FUTURE = 4;
+  FUTURE_OPTION = 5;
+  INDEX = 6;
+  INDICATOR = 7;
+  MUTUAL_FUND = 8;
+  OPTION = 9;
+  UNKNOWN = 10;
+}
+
+enum AssetType1 {
+  EQUITY = 1;
+  MUTUAL_FUND = 2;
+  OPTION = 3;
+  FIXED_INCOME = 4;
+  CASH_EQUIVALENT = 5;
+}
+
+enum AssetType2 {
+  EQUITY = 1;
+  OPTION = 2;
+  INDEX = 3;
+  MUTUAL_FUND = 4;
+  CASH_EQUIVALENT = 5;
+  FIXED_INCOME = 6;
+  CURRENCY = 7;
+}
+
+enum AssetType3 {
+  EQUITY = 1;
+  OPTION = 2;
+  MUTUAL_FUND = 3;
+  FIXED_INCOME = 4;
+  INDEX = 5;
+}
+
+enum AuthTokenTimeout {
+  FIFTY_FIVE_MINUTES = 1;
+  TWO_HOURS = 2;
+  FOUR_HOURS = 3;
+  EIGHT_HOURS = 4;
+}
+
+enum ComplexOrderStrategyType {
+  NONE = 1;
+  COVERED = 2;
+  VERTICAL = 3;
+  BACK_RATIO = 4;
+  CALENDAR = 5;
+  DIAGONAL = 6;
+  STRADDLE = 7;
+  STRANGLE = 8;
+  COLLAR_SYNTHETIC = 9;
+  BUTTERFLY = 10;
+  CONDOR = 11;
+  IRON_CONDOR = 12;
+  VERTICAL_ROLL = 13;
+  COLLAR_WITH_STOCK = 14;
+  DOUBLE_DIAGONAL = 15;
+  UNBALANCED_BUTTERFLY = 16;
+  UNBALANCED_CONDOR = 17;
+  UNBALANCED_IRON_CONDOR = 18;
+  UNBALANCED_VERTICAL_ROLL = 19;
+  CUSTOM = 20;
+}
+
+enum CurrencyType {
+  USD = 1;
+  CAD = 2;
+  EUR = 3;
+  JPY = 4;
+}
+
+enum DefaultAdvancedToolLaunch {
+  TA = 1;
+  N = 2;
+  Y = 3;
+  TOS = 4;
+  NONE = 5;
+  CC2 = 6;
+}
+
+enum DefaultEquityOrderDuration {
+  DAY = 1;
+  GOOD_TILL_CANCEL = 2;
+  NONE = 3;
+}
+
+enum DefaultEquityOrderLegInstruction {
+  BUY = 1;
+  SELL = 2;
+  BUY_TO_COVER = 3;
+  SELL_SHORT = 4;
+  NONE = 5;
+}
+
+enum DefaultEquityOrderMarketSession {
+  AM = 1;
+  PM = 2;
+  NORMAL = 3;
+  SEAMLESS = 4;
+  NONE = 5;
+}
+
+enum DefaultEquityOrderPriceLinkType {
+  VALUE = 1;
+  PERCENT = 2;
+  NONE = 3;
+}
+
+enum DefaultEquityOrderType {
+  MARKET = 1;
+  LIMIT = 2;
+  STOP = 3;
+  STOP_LIMIT = 4;
+  TRAILING_STOP = 5;
+  MARKET_ON_CLOSE = 6;
+  NONE = 7;
+}
+
+enum Direction {
+  up = 1;
+  down = 2;
+}
+
+enum Duration {
+  DAY = 1;
+  GOOD_TILL_CANCEL = 2;
+  FILL_OR_KILL = 3;
+}
+
+enum EquityTaxLotMethod {
+  FIFO = 1;
+  LIFO = 2;
+  HIGH_COST = 3;
+  LOW_COST = 4;
+  MINIMUM_TAX = 5;
+  AVERAGE_COST = 6;
+  NONE = 7;
+}
+
+enum ExchangeName {
+  IND = 1;
+  ASE = 2;
+  NYS = 3;
+  NAS = 4;
+  NAP = 5;
+  PAC = 6;
+  OPR = 7;
+  BATS = 8;
+}
+
+enum ExecutionType {
+  FILL = 1;
+}
+
+enum Instruction {
+  BUY = 1;
+  SELL = 2;
+}
+
+enum MarketType {
+  BOND = 1;
+  EQUITY = 2;
+  ETF = 3;
+  FOREX = 4;
+  FUTURE = 5;
+  FUTURE_OPTION = 6;
+  INDEX = 7;
+  INDICATOR = 8;
+  MUTUAL_FUND = 9;
+  OPTION = 10;
+  UNKNOWN = 11;
+}
+
+enum MutualFundTaxLotMethod {
+  FIFO = 1;
+  LIFO = 2;
+  HIGH_COST = 3;
+  LOW_COST = 4;
+  MINIMUM_TAX = 5;
+  AVERAGE_COST = 6;
+  NONE = 7;
+}
+
+enum OptionTaxLotMethod {
+  FIFO = 1;
+  LIFO = 2;
+  HIGH_COST = 3;
+  LOW_COST = 4;
+  MINIMUM_TAX = 5;
+  AVERAGE_COST = 6;
+  NONE = 7;
+}
+
+enum OptionTradingLevel {
+  COVERED = 1;
+  FULL = 2;
+  LONG = 3;
+  SPREAD = 4;
+  NONE = 5;
+}
+
+enum OrderLegType {
+  EQUITY = 1;
+  OPTION = 2;
+  INDEX = 3;
+  MUTUAL_FUND = 4;
+  CASH_EQUIVALENT = 5;
+  FIXED_INCOME = 6;
+  CURRENCY = 7;
+}
+
+enum OrderStrategyType {
+  SINGLE = 1;
+  OCO = 2;
+  TRIGGER = 3;
+}
+
+enum OrderType {
+  MARKET = 1;
+  LIMIT = 2;
+  STOP = 3;
+  STOP_LIMIT = 4;
+  TRAILING_STOP = 5;
+  MARKET_ON_CLOSE = 6;
+  EXERCISE = 7;
+  TRAILING_STOP_LIMIT = 8;
+  NET_DEBIT = 9;
+  NET_CREDIT = 10;
+  NET_ZERO = 11;
+}
+
+enum PositionEffect {
+  OPENING = 1;
+  CLOSING = 2;
+  AUTOMATIC = 3;
+}
+
+enum PriceLinkBasis {
+  MANUAL = 1;
+  BASE = 2;
+  TRIGGER = 3;
+  LAST = 4;
+  BID = 5;
+  ASK = 6;
+  ASK_BID = 7;
+  MARK = 8;
+  AVERAGE = 9;
+}
+
+enum PriceLinkType {
+  VALUE = 1;
+  PERCENT = 2;
+  TICK = 3;
+}
+
+enum ProfessionalStatus {
+  PROFESSIONAL = 1;
+  NON_PROFESSIONAL = 2;
+  UNKNOWN_STATUS = 3;
+}
+
+enum PutCall {
+  PUT = 1;
+  CALL = 2;
+}
+
+enum QuantityType {
+  ALL_SHARES = 1;
+  DOLLARS = 2;
+  SHARES = 3;
+}
+
+enum RequestedDestination {
+  INET = 1;
+  ECN_ARCA = 2;
+  CBOE = 3;
+  AMEX = 4;
+  PHLX = 5;
+  ISE = 6;
+  BOX = 7;
+  NYSE = 8;
+  NASDAQ = 9;
+  BATS = 10;
+  C2 = 11;
+  AUTO = 12;
+}
+
+enum Session {
+  NORMAL = 1;
+  AM = 2;
+  PM = 3;
+  SEAMLESS = 4;
+}
+
+enum SpecialInstruction {
+  ALL_OR_NONE = 1;
+  DO_NOT_REDUCE = 2;
+  ALL_OR_NONE_DO_NOT_REDUCE = 3;
+}
+
+enum Status {
+  AWAITING_PARENT_ORDER = 1;
+  AWAITING_CONDITION = 2;
+  AWAITING_MANUAL_REVIEW = 3;
+  ACCEPTED = 4;
+  AWAITING_UR_OUT = 5;
+  PENDING_ACTIVATION = 6;
+  QUEUED = 7;
+  WORKING = 8;
+  REJECTED = 9;
+  PENDING_CANCEL = 10;
+  CANCELED = 11;
+  PENDING_REPLACE = 12;
+  REPLACED = 13;
+  FILLED = 14;
+  EXPIRED = 15;
+}
+
+enum Status1 {
+  AWAITING_PARENT_ORDER = 1;
+  AWAITING_CONDITION = 2;
+  AWAITING_MANUAL_REVIEW = 3;
+  ACCEPTED = 4;
+  AWAITING_UR_OUT = 5;
+  PENDING_ACTIVATION = 6;
+  QUEUED = 7;
+  WORKING = 8;
+  REJECTED = 9;
+  PENDING_CANCEL = 10;
+  CANCELED = 11;
+  PENDING_REPLACE = 12;
+  REPLACED = 13;
+  FILLED = 14;
+  EXPIRED = 15;
+}
+
+enum Status2 {
+  UNCHANGED = 1;
+  CREATED = 2;
+  UPDATED = 3;
+  DELETED = 4;
+}
+
+enum StopPriceLinkBasis {
+  MANUAL = 1;
+  BASE = 2;
+  TRIGGER = 3;
+  LAST = 4;
+  BID = 5;
+  ASK = 6;
+  ASK_BID = 7;
+  MARK = 8;
+  AVERAGE = 9;
+}
+
+enum StopPriceLinkType {
+  VALUE = 1;
+  PERCENT = 2;
+  TICK = 3;
+}
+
+enum StopType {
+  STANDARD = 1;
+  BID = 2;
+  ASK = 3;
+  LAST = 4;
+  MARK = 5;
+}
+
+enum Strategy {
+  SINGLE = 1;
+  ANALYTICAL = 2;
+  COVERED = 3;
+  VERTICAL = 4;
+  CALENDAR = 5;
+  STRANGLE = 6;
+  STRADDLE = 7;
+  BUTTERFLY = 8;
+  CONDOR = 9;
+  DIAGONAL = 10;
+  COLLAR = 11;
+  ROLL = 12;
+}
+
+enum TaxLotMethod {
+  FIFO = 1;
+  LIFO = 2;
+  HIGH_COST = 3;
+  LOW_COST = 4;
+  AVERAGE_COST = 5;
+  SPECIFIC_LOT = 6;
+}
+
+enum Type {
+  TRADE = 1;
+  RECEIVE_AND_DELIVER = 2;
+  DIVIDEND_OR_INTEREST = 3;
+  ACH_RECEIPT = 4;
+  ACH_DISBURSEMENT = 5;
+  CASH_RECEIPT = 6;
+  CASH_DISBURSEMENT = 7;
+  ELECTRONIC_FUND = 8;
+  WIRE_OUT = 9;
+  WIRE_IN = 10;
+  JOURNAL = 11;
+  MEMORANDUM = 12;
+  MARGIN_CALL = 13;
+  MONEY_MARKET = 14;
+  SMA_ADJUSTMENT = 15;
+}
+
+message Account {
+  optional oneof securitiesAccount = 1;
+}
+
+message Bond {
+  optional AssetType assetType = 1;
+  optional double bondPrice = 2;
+  optional string cusip = 3;
+  optional string description = 4;
+  optional string exchange = 5;
+  optional string symbol = 6;
+}
+
+message CandleList {
+  optional __UNKNOWN candles = 1;
+  optional bool empty = 2;
+  optional string symbol = 3;
+}
+
+message CashAccount {
+  optional string accountId = 1;
+  optional CurrentBalances currentBalances = 2;
+  optional InitialBalances initialBalances = 3;
+  optional bool isClosingOnlyRestricted = 4;
+  optional bool isDayTrader = 5;
+  optional __UNKNOWN orderStrategies = 6;
+  optional __UNKNOWN positions = 7;
+  optional ProjectedBalances projectedBalances = 8;
+  optional int32 roundTrips = 9;
+  optional Type type = 10;
+}
+
+message CashEquivalent {
+  optional AssetType assetType = 1;
+  optional string cusip = 2;
+  optional string description = 3;
+  optional string symbol = 4;
+  optional Type type = 5;
+}
+
+message CreateSavedOrder {
+  optional int64 accountId = 1;
+  optional double activationPrice = 2;
+  optional CancelTime cancelTime = 3;
+  optional bool cancelable = 4;
+  optional ChildOrder childOrderStrategies = 5;
+  optional string closeTime = 6;
+  optional ComplexOrderStrategyType complexOrderStrategyType = 7;
+  optional string destinationLinkName = 8;
+  optional Duration duration = 9;
+  optional bool editable = 10;
+  optional string enteredTime = 11;
+  optional double filledQuantity = 12;
+  optional oneof orderActivityCollection = 13;
+  optional int64 orderId = 14;
+  optional OrderLeg orderLegCollection = 15;
+  optional OrderStrategyType orderStrategyType = 16;
+  optional OrderType orderType = 17;
+  optional double price = 18;
+  optional PriceLinkBasis priceLinkBasis = 19;
+  optional PriceLinkType priceLinkType = 20;
+  optional double quantity = 21;
+  optional string releaseTime = 22;
+  optional double remainingQuantity = 23;
+  optional ReplacingOrder replacingOrderCollection = 24;
+  optional RequestedDestination requestedDestination = 25;
+  optional int64 savedOrderId = 26;
+  optional string savedTime = 27;
+  optional Session session = 28;
+  optional SpecialInstruction specialInstruction = 29;
+  optional Status status = 30;
+  optional string statusDescription = 31;
+  optional double stopPrice = 32;
+  optional StopPriceLinkBasis stopPriceLinkBasis = 33;
+  optional StopPriceLinkType stopPriceLinkType = 34;
+  optional double stopPriceOffset = 35;
+  optional StopType stopType = 36;
+  optional TaxLotMethod taxLotMethod = 37;
+}
+
+message CreateWatchlist {
+  optional string name = 1;
+  optional __UNKNOWN watchlistItems = 2;
+}
+
+message EASObject {
+  optional string access_token = 1;
+  optional int32 expires_in = 2;
+  optional string refresh_token = 3;
+  optional int32 refresh_token_expires_in = 4;
+  optional string scope = 5;
+  optional string token_type = 6;
+}
+
+message ETF {
+  optional double 52WkHigh = 1;
+  optional double 52WkLow = 2;
+  optional string askId = 3;
+  optional double askPrice = 4;
+  optional int32 askSize = 5;
+  optional string bidId = 6;
+  optional double bidPrice = 7;
+  optional int32 bidSize = 8;
+  optional double closePrice = 9;
+  optional string description = 10;
+  optional int32 digits = 11;
+  optional double divAmount = 12;
+  optional string divDate = 13;
+  optional double divYield = 14;
+  optional string exchange = 15;
+  optional string exchangeName = 16;
+  optional double highPrice = 17;
+  optional string lastId = 18;
+  optional double lastPrice = 19;
+  optional int32 lastSize = 20;
+  optional double lowPrice = 21;
+  optional bool marginable = 22;
+  optional double mark = 23;
+  optional double netChange = 24;
+  optional double openPrice = 25;
+  optional double peRatio = 26;
+  optional int32 quoteTimeInLong = 27;
+  optional double regularMarketLastPrice = 28;
+  optional int32 regularMarketLastSize = 29;
+  optional double regularMarketNetChange = 30;
+  optional int32 regularMarketTradeTimeInLong = 31;
+  optional string securityStatus = 32;
+  optional bool shortable = 33;
+  optional string symbol = 34;
+  optional int32 totalVolume = 35;
+  optional int32 tradeTimeInLong = 36;
+  optional double volatility = 37;
+}
+
+message Equity {
+  optional AssetType assetType = 1;
+  optional string cusip = 2;
+  optional string description = 3;
+  optional string symbol = 4;
+}
+
+message EquityQuote {
+  optional double 52WkHigh = 1;
+  optional double 52WkLow = 2;
+  optional string askId = 3;
+  optional double askPrice = 4;
+  optional int32 askSize = 5;
+  optional string bidId = 6;
+  optional double bidPrice = 7;
+  optional int32 bidSize = 8;
+  optional double closePrice = 9;
+  optional string description = 10;
+  optional int32 digits = 11;
+  optional double divAmount = 12;
+  optional string divDate = 13;
+  optional double divYield = 14;
+  optional string exchange = 15;
+  optional string exchangeName = 16;
+  optional double highPrice = 17;
+  optional string lastId = 18;
+  optional double lastPrice = 19;
+  optional int32 lastSize = 20;
+  optional double lowPrice = 21;
+  optional bool marginable = 22;
+  optional double mark = 23;
+  optional double netChange = 24;
+  optional double openPrice = 25;
+  optional double peRatio = 26;
+  optional int32 quoteTimeInLong = 27;
+  optional double regularMarketLastPrice = 28;
+  optional int32 regularMarketLastSize = 29;
+  optional double regularMarketNetChange = 30;
+  optional int32 regularMarketTradeTimeInLong = 31;
+  optional string securityStatus = 32;
+  optional bool shortable = 33;
+  optional string symbol = 34;
+  optional int32 totalVolume = 35;
+  optional int32 tradeTimeInLong = 36;
+  optional double volatility = 37;
+}
+
+message Execution {
+  optional ActivityType activityType = 1;
+  optional ExecutionLeg executionLegs = 2;
+  optional ExecutionType executionType = 3;
+  optional double orderRemainingQuantity = 4;
+  optional double quantity = 5;
+}
+
+message ExpirationDate {
+  optional string date = 1;
+}
+
+message FixedIncome {
+  optional AssetType assetType = 1;
+  optional string cusip = 2;
+  optional string description = 3;
+  optional double factor = 4;
+  optional string maturityDate = 5;
+  optional string symbol = 6;
+  optional double variableRate = 7;
+}
+
+message Forex {
+  optional double 52WkHighInDouble = 1;
+  optional double 52WkLowInDouble = 2;
+  optional double askPriceInDouble = 3;
+  optional double bidPriceInDouble = 4;
+  optional double changeInDouble = 5;
+  optional double closePriceInDouble = 6;
+  optional string description = 7;
+  optional int32 digits = 8;
+  optional string exchange = 9;
+  optional string exchangeName = 10;
+  optional double highPriceInDouble = 11;
+  optional bool isTradable = 12;
+  optional double lastPriceInDouble = 13;
+  optional double lowPriceInDouble = 14;
+  optional double mark = 15;
+  optional string marketMaker = 16;
+  optional double openPriceInDouble = 17;
+  optional double percentChange = 18;
+  optional string product = 19;
+  optional string securityStatus = 20;
+  optional string symbol = 21;
+  optional double tick = 22;
+  optional double tickAmount = 23;
+  optional string tradingHours = 24;
+}
+
+message Fundamental {
+  optional AssetType assetType = 1;
+  optional string cusip = 2;
+  optional string description = 3;
+  optional string exchange = 4;
+  optional Fundamental fundamental = 5;
+  optional string symbol = 6;
+}
+
+message FundamentalData {
+  optional double beta = 1;
+  optional double bookValuePerShare = 2;
+  optional double currentRatio = 3;
+  optional double divGrowthRate3Year = 4;
+  optional double dividendAmount = 5;
+  optional string dividendDate = 6;
+  optional double dividendPayAmount = 7;
+  optional string dividendPayDate = 8;
+  optional double dividendYield = 9;
+  optional double epsChange = 10;
+  optional double epsChangePercentTTM = 11;
+  optional double epsChangeYear = 12;
+  optional double epsTTM = 13;
+  optional double grossMarginMRQ = 14;
+  optional double grossMarginTTM = 15;
+  optional double high52 = 16;
+  optional double interestCoverage = 17;
+  optional double low52 = 18;
+  optional double ltDebtToEquity = 19;
+  optional double marketCap = 20;
+  optional double marketCapFloat = 21;
+  optional double netProfitMarginMRQ = 22;
+  optional double netProfitMarginTTM = 23;
+  optional double operatingMarginMRQ = 24;
+  optional double operatingMarginTTM = 25;
+  optional double pbRatio = 26;
+  optional double pcfRatio = 27;
+  optional double peRatio = 28;
+  optional double pegRatio = 29;
+  optional double prRatio = 30;
+  optional double quickRatio = 31;
+  optional double returnOnAssets = 32;
+  optional double returnOnEquity = 33;
+  optional double returnOnInvestment = 34;
+  optional double revChangeIn = 35;
+  optional double revChangeTTM = 36;
+  optional double revChangeYear = 37;
+  optional double sharesOutstanding = 38;
+  optional double shortIntDayToCover = 39;
+  optional double shortIntToFloat = 40;
+  optional string symbol = 41;
+  optional double totalDebtToCapital = 42;
+  optional double totalDebtToEquity = 43;
+  optional double vol10DayAvg = 44;
+  optional double vol1DayAvg = 45;
+  optional double vol3MonthAvg = 46;
+}
+
+message Future {
+  optional string askId = 1;
+  optional double askPriceInDouble = 2;
+  optional string bidId = 3;
+  optional double bidPriceInDouble = 4;
+  optional double changeInDouble = 5;
+  optional double closePriceInDouble = 6;
+  optional string description = 7;
+  optional string exchange = 8;
+  optional string exchangeName = 9;
+  optional string futureActiveSymbol = 10;
+  optional string futureExpirationDate = 11;
+  optional bool futureIsActive = 12;
+  optional bool futureIsTradable = 13;
+  optional double futureMultiplier = 14;
+  optional double futurePercentChange = 15;
+  optional string futurePriceFormat = 16;
+  optional double futureSettlementPrice = 17;
+  optional string futureTradingHours = 18;
+  optional double highPriceInDouble = 19;
+  optional string lastId = 20;
+  optional double lastPriceInDouble = 21;
+  optional double lowPriceInDouble = 22;
+  optional double mark = 23;
+  optional double openInterest = 24;
+  optional double openPriceInDouble = 25;
+  optional string product = 26;
+  optional string securityStatus = 27;
+  optional string symbol = 28;
+  optional double tick = 29;
+  optional double tickAmount = 30;
+}
+
+message Future Options {
+  optional double askPriceInDouble = 1;
+  optional double bidPriceInDouble = 2;
+  optional double closePriceInDouble = 3;
+  optional string contractType = 4;
+  optional double deltaInDouble = 5;
+  optional string description = 6;
+  optional int32 digits = 7;
+  optional string exchangeName = 8;
+  optional string exerciseType = 9;
+  optional string expirationType = 10;
+  optional int32 futureExpirationDate = 11;
+  optional bool futureIsActive = 12;
+  optional bool futureIsTradable = 13;
+  optional double futurePercentChange = 14;
+  optional string futureTradingHours = 15;
+  optional double gammaInDouble = 16;
+  optional double highPriceInDouble = 17;
+  optional bool inTheMoney = 18;
+  optional double lastPriceInDouble = 19;
+  optional double lowPriceInDouble = 20;
+  optional double mark = 21;
+  optional double moneyIntrinsicValueInDouble = 22;
+  optional double multiplierInDouble = 23;
+  optional double netChangeInDouble = 24;
+  optional double openInterest = 25;
+  optional double openPriceInDouble = 26;
+  optional double rhoInDouble = 27;
+  optional string securityStatus = 28;
+  optional double strikePriceInDouble = 29;
+  optional string symbol = 30;
+  optional double thetaInDouble = 31;
+  optional double tick = 32;
+  optional double tickAmount = 33;
+  optional double timeValueInDouble = 34;
+  optional string underlying = 35;
+  optional double vegaInDouble = 36;
+  optional double volatility = 37;
+}
+
+message Hours {
+  optional string category = 1;
+  optional string date = 2;
+  optional string exchange = 3;
+  optional bool isOpen = 4;
+  optional MarketType marketType = 5;
+  optional string product = 6;
+  optional string productName = 7;
+  optional SessionHours sessionHours = 8;
+}
+
+message Index {
+  optional double 52WkHigh = 1;
+  optional double 52WkLow = 2;
+  optional double closePrice = 3;
+  optional string description = 4;
+  optional int32 digits = 5;
+  optional string exchange = 6;
+  optional string exchangeName = 7;
+  optional double highPrice = 8;
+  optional double lastPrice = 9;
+  optional double lowPrice = 10;
+  optional double netChange = 11;
+  optional double openPrice = 12;
+  optional string securityStatus = 13;
+  optional string symbol = 14;
+  optional int32 totalVolume = 15;
+  optional int32 tradeTimeInLong = 16;
+}
+
+message Instrument {
+  optional AssetType assetType = 1;
+  optional string cusip = 2;
+  optional string description = 3;
+  optional string exchange = 4;
+  optional string symbol = 5;
+}
+
+message MarginAccount {
+  optional string accountId = 1;
+  optional CurrentBalances currentBalances = 2;
+  optional InitialBalances initialBalances = 3;
+  optional bool isClosingOnlyRestricted = 4;
+  optional bool isDayTrader = 5;
+  optional __UNKNOWN orderStrategies = 6;
+  optional __UNKNOWN positions = 7;
+  optional ProjectedBalances projectedBalances = 8;
+  optional int32 roundTrips = 9;
+  optional Type type = 10;
+}
+
+message Mover {
+  optional double change = 1;
+  optional string description = 2;
+  optional Direction direction = 3;
+  optional double last = 4;
+  optional string symbol = 5;
+  optional int64 totalVolume = 6;
+}
+
+message Mutual Fund {
+  optional double 52WkHigh = 1;
+  optional double 52WkLow = 2;
+  optional double closePrice = 3;
+  optional string description = 4;
+  optional int32 digits = 5;
+  optional double divAmount = 6;
+  optional string divDate = 7;
+  optional double divYield = 8;
+  optional string exchange = 9;
+  optional string exchangeName = 10;
+  optional double nAV = 11;
+  optional double netChange = 12;
+  optional double peRatio = 13;
+  optional string securityStatus = 14;
+  optional string symbol = 15;
+  optional int32 totalVolume = 16;
+  optional int32 tradeTimeInLong = 17;
+}
+
+message MutualFund {
+  optional AssetType assetType = 1;
+  optional string cusip = 2;
+  optional string description = 3;
+  optional string symbol = 4;
+  optional Type type = 5;
+}
+
+message Option {
+  optional AssetType assetType = 1;
+  optional string cusip = 2;
+  optional string description = 3;
+  optional OptionDeliverable optionDeliverables = 4;
+  optional int32 optionMultiplier = 5;
+  optional PutCall putCall = 6;
+  optional string symbol = 7;
+  optional Type type = 8;
+  optional string underlyingSymbol = 9;
+}
+
+message OptionChain {
+  optional CallExpDateMap callExpDateMap = 1;
+  optional double daysToExpiration = 2;
+  optional double interestRate = 3;
+  optional double interval = 4;
+  optional bool isDelayed = 5;
+  optional bool isIndex = 6;
+  optional PutExpDateMap putExpDateMap = 7;
+  optional string status = 8;
+  optional Strategy strategy = 9;
+  optional string symbol = 10;
+  optional Underlying underlying = 11;
+  optional double underlyingPrice = 12;
+  optional double volatility = 13;
+}
+
+message OptionChainQuote {
+  optional double askPrice = 1;
+  optional int32 askSize = 2;
+  optional double bidPrice = 3;
+  optional int32 bidSize = 4;
+  optional double closePrice = 5;
+  optional string deliverableNote = 6;
+  optional double delta = 7;
+  optional string description = 8;
+  optional string exchangeName = 9;
+  optional string expirationDate = 10;
+  optional string expirationType = 11;
+  optional double gamma = 12;
+  optional double highPrice = 13;
+  optional bool isInTheMoney = 14;
+  optional bool isIndexOption = 15;
+  optional bool isMini = 16;
+  optional bool isNonStandard = 17;
+  optional double lastPrice = 18;
+  optional int32 lastSize = 19;
+  optional double lowPrice = 20;
+  optional double markChange = 21;
+  optional double markPercentChange = 22;
+  optional double markPrice = 23;
+  optional double multiplier = 24;
+  optional double netChange = 25;
+  optional double openInterest = 26;
+  optional double openPrice = 27;
+  optional __UNKNOWN optionDeliverablesList = 28;
+  optional double percentChange = 29;
+  optional PutCall putCall = 30;
+  optional int32 quoteTimeInLong = 31;
+  optional double rho = 32;
+  optional string settlementType = 33;
+  optional double strikePrice = 34;
+  optional string symbol = 35;
+  optional double theoreticalOptionValue = 36;
+  optional double theoreticalVolatility = 37;
+  optional double theta = 38;
+  optional double timeValue = 39;
+  optional int32 totalVolume = 40;
+  optional int32 tradeTimeInLong = 41;
+  optional double vega = 42;
+  optional double volatility = 43;
+}
+
+message OptionDeliverables {
+  optional string assetType = 1;
+  optional string currencyType = 2;
+  optional string deliverableUnits = 3;
+  optional string symbol = 4;
+}
+
+message OptionQuote {
+  optional double askPrice = 1;
+  optional int32 askSize = 2;
+  optional double bidPrice = 3;
+  optional int32 bidSize = 4;
+  optional double closePrice = 5;
+  optional string contractType = 6;
+  optional string deliverables = 7;
+  optional double delta = 8;
+  optional string description = 9;
+  optional string exchange = 10;
+  optional string exchangeName = 11;
+  optional double gamma = 12;
+  optional double highPrice = 13;
+  optional double lastPrice = 14;
+  optional int32 lastSize = 15;
+  optional double lowPrice = 16;
+  optional double mark = 17;
+  optional double moneyIntrinsicValue = 18;
+  optional double multiplier = 19;
+  optional double netChange = 20;
+  optional double openInterest = 21;
+  optional double openPrice = 22;
+  optional int32 quoteTimeInLong = 23;
+  optional double rho = 24;
+  optional string securityStatus = 25;
+  optional string settlementType = 26;
+  optional double strikePrice = 27;
+  optional string symbol = 28;
+  optional double theoreticalOptionValue = 29;
+  optional double theta = 30;
+  optional double timeValue = 31;
+  optional int32 totalVolume = 32;
+  optional int32 tradeTimeInLong = 33;
+  optional string underlying = 34;
+  optional double underlyingPrice = 35;
+  optional string uvExpirationType = 36;
+  optional double vega = 37;
+  optional double volatility = 38;
+}
+
+message OrderGet {
+  optional int64 accountId = 1;
+  optional double activationPrice = 2;
+  optional CancelTime cancelTime = 3;
+  optional bool cancelable = 4;
+  optional None childOrderStrategies = 5;
+  optional string closeTime = 6;
+  optional ComplexOrderStrategyType complexOrderStrategyType = 7;
+  optional string destinationLinkName = 8;
+  optional Duration duration = 9;
+  optional bool editable = 10;
+  optional string enteredTime = 11;
+  optional double filledQuantity = 12;
+  optional oneof orderActivityCollection = 13;
+  optional int64 orderId = 14;
+  optional OrderLeg orderLegCollection = 15;
+  optional OrderStrategyType orderStrategyType = 16;
+  optional OrderType orderType = 17;
+  optional double price = 18;
+  optional PriceLinkBasis priceLinkBasis = 19;
+  optional PriceLinkType priceLinkType = 20;
+  optional double quantity = 21;
+  optional string releaseTime = 22;
+  optional double remainingQuantity = 23;
+  optional None replacingOrderCollection = 24;
+  optional RequestedDestination requestedDestination = 25;
+  optional Session session = 26;
+  optional SpecialInstruction specialInstruction = 27;
+  optional Status status = 28;
+  optional string statusDescription = 29;
+  optional double stopPrice = 30;
+  optional StopPriceLinkBasis stopPriceLinkBasis = 31;
+  optional StopPriceLinkType stopPriceLinkType = 32;
+  optional double stopPriceOffset = 33;
+  optional StopType stopType = 34;
+  optional string tag = 35;
+  optional TaxLotMethod taxLotMethod = 36;
+}
+
+message PlaceOrder {
+  optional int64 accountId = 1;
+  optional double activationPrice = 2;
+  optional CancelTime cancelTime = 3;
+  optional bool cancelable = 4;
+  optional None childOrderStrategies = 5;
+  optional string closeTime = 6;
+  optional ComplexOrderStrategyType complexOrderStrategyType = 7;
+  optional string destinationLinkName = 8;
+  optional Duration duration = 9;
+  optional bool editable = 10;
+  optional string enteredTime = 11;
+  optional double filledQuantity = 12;
+  optional oneof orderActivityCollection = 13;
+  optional int64 orderId = 14;
+  optional OrderLeg orderLegCollection = 15;
+  optional OrderStrategyType orderStrategyType = 16;
+  optional OrderType orderType = 17;
+  optional double price = 18;
+  optional PriceLinkBasis priceLinkBasis = 19;
+  optional PriceLinkType priceLinkType = 20;
+  optional double quantity = 21;
+  optional string releaseTime = 22;
+  optional double remainingQuantity = 23;
+  optional None replacingOrderCollection = 24;
+  optional RequestedDestination requestedDestination = 25;
+  optional Session session = 26;
+  optional SpecialInstruction specialInstruction = 27;
+  optional Status status = 28;
+  optional string statusDescription = 29;
+  optional double stopPrice = 30;
+  optional StopPriceLinkBasis stopPriceLinkBasis = 31;
+  optional StopPriceLinkType stopPriceLinkType = 32;
+  optional double stopPriceOffset = 33;
+  optional StopType stopType = 34;
+  optional TaxLotMethod taxLotMethod = 35;
+}
+
+message Preferences {
+  optional AuthTokenTimeout authTokenTimeout = 1;
+  optional DefaultAdvancedToolLaunch defaultAdvancedToolLaunch = 2;
+  optional DefaultEquityOrderDuration defaultEquityOrderDuration = 3;
+  optional DefaultEquityOrderLegInstruction defaultEquityOrderLegInstruction = 4;
+  optional DefaultEquityOrderMarketSession defaultEquityOrderMarketSession = 5;
+  optional DefaultEquityOrderPriceLinkType defaultEquityOrderPriceLinkType = 6;
+  optional DefaultEquityOrderType defaultEquityOrderType = 7;
+  optional int32 defaultEquityQuantity = 8;
+  optional bool directEquityRouting = 9;
+  optional bool directOptionsRouting = 10;
+  optional EquityTaxLotMethod equityTaxLotMethod = 11;
+  optional bool expressTrading = 12;
+  optional MutualFundTaxLotMethod mutualFundTaxLotMethod = 13;
+  optional OptionTaxLotMethod optionTaxLotMethod = 14;
+}
+
+message ReplaceOrder {
+  optional int64 accountId = 1;
+  optional double activationPrice = 2;
+  optional CancelTime cancelTime = 3;
+  optional bool cancelable = 4;
+  optional None childOrderStrategies = 5;
+  optional string closeTime = 6;
+  optional ComplexOrderStrategyType complexOrderStrategyType = 7;
+  optional string destinationLinkName = 8;
+  optional Duration duration = 9;
+  optional bool editable = 10;
+  optional string enteredTime = 11;
+  optional double filledQuantity = 12;
+  optional oneof orderActivityCollection = 13;
+  optional int64 orderId = 14;
+  optional OrderLeg orderLegCollection = 15;
+  optional OrderStrategyType orderStrategyType = 16;
+  optional OrderType orderType = 17;
+  optional double price = 18;
+  optional PriceLinkBasis priceLinkBasis = 19;
+  optional PriceLinkType priceLinkType = 20;
+  optional double quantity = 21;
+  optional string releaseTime = 22;
+  optional double remainingQuantity = 23;
+  optional None replacingOrderCollection = 24;
+  optional RequestedDestination requestedDestination = 25;
+  optional Session session = 26;
+  optional SpecialInstruction specialInstruction = 27;
+  optional Status status = 28;
+  optional string statusDescription = 29;
+  optional double stopPrice = 30;
+  optional StopPriceLinkBasis stopPriceLinkBasis = 31;
+  optional StopPriceLinkType stopPriceLinkType = 32;
+  optional double stopPriceOffset = 33;
+  optional StopType stopType = 34;
+  optional TaxLotMethod taxLotMethod = 35;
+}
+
+message ReplaceSavedOrder {
+  optional int64 accountId = 1;
+  optional double activationPrice = 2;
+  optional CancelTime cancelTime = 3;
+  optional bool cancelable = 4;
+  optional ChildOrder childOrderStrategies = 5;
+  optional string closeTime = 6;
+  optional ComplexOrderStrategyType complexOrderStrategyType = 7;
+  optional string destinationLinkName = 8;
+  optional Duration duration = 9;
+  optional bool editable = 10;
+  optional string enteredTime = 11;
+  optional double filledQuantity = 12;
+  optional oneof orderActivityCollection = 13;
+  optional int64 orderId = 14;
+  optional OrderLeg orderLegCollection = 15;
+  optional OrderStrategyType orderStrategyType = 16;
+  optional OrderType orderType = 17;
+  optional double price = 18;
+  optional PriceLinkBasis priceLinkBasis = 19;
+  optional PriceLinkType priceLinkType = 20;
+  optional double quantity = 21;
+  optional string releaseTime = 22;
+  optional double remainingQuantity = 23;
+  optional ReplacingOrder replacingOrderCollection = 24;
+  optional RequestedDestination requestedDestination = 25;
+  optional int64 savedOrderId = 26;
+  optional string savedTime = 27;
+  optional Session session = 28;
+  optional SpecialInstruction specialInstruction = 29;
+  optional Status status = 30;
+  optional string statusDescription = 31;
+  optional double stopPrice = 32;
+  optional StopPriceLinkBasis stopPriceLinkBasis = 33;
+  optional StopPriceLinkType stopPriceLinkType = 34;
+  optional double stopPriceOffset = 35;
+  optional StopType stopType = 36;
+  optional TaxLotMethod taxLotMethod = 37;
+}
+
+message ReplaceWatchlist {
+  optional string name = 1;
+  optional string watchlistId = 2;
+  optional __UNKNOWN watchlistItems = 3;
+}
+
+message SavedOrderGet {
+  optional int64 accountId = 1;
+  optional double activationPrice = 2;
+  optional CancelTime cancelTime = 3;
+  optional bool cancelable = 4;
+  optional ChildOrder childOrderStrategies = 5;
+  optional string closeTime = 6;
+  optional ComplexOrderStrategyType complexOrderStrategyType = 7;
+  optional string destinationLinkName = 8;
+  optional Duration duration = 9;
+  optional bool editable = 10;
+  optional string enteredTime = 11;
+  optional double filledQuantity = 12;
+  optional oneof orderActivityCollection = 13;
+  optional int64 orderId = 14;
+  optional OrderLeg orderLegCollection = 15;
+  optional OrderStrategyType orderStrategyType = 16;
+  optional OrderType orderType = 17;
+  optional double price = 18;
+  optional PriceLinkBasis priceLinkBasis = 19;
+  optional PriceLinkType priceLinkType = 20;
+  optional double quantity = 21;
+  optional string releaseTime = 22;
+  optional double remainingQuantity = 23;
+  optional ReplacingOrder replacingOrderCollection = 24;
+  optional RequestedDestination requestedDestination = 25;
+  optional int64 savedOrderId = 26;
+  optional string savedTime = 27;
+  optional Session session = 28;
+  optional SpecialInstruction specialInstruction = 29;
+  optional Status status = 30;
+  optional string statusDescription = 31;
+  optional double stopPrice = 32;
+  optional StopPriceLinkBasis stopPriceLinkBasis = 33;
+  optional StopPriceLinkType stopPriceLinkType = 34;
+  optional double stopPriceOffset = 35;
+  optional StopType stopType = 36;
+  optional string tag = 37;
+  optional TaxLotMethod taxLotMethod = 38;
+}
+
+message SubscriptionKey {
+  optional __UNKNOWN keys = 1;
+}
+
+message Transaction {
+  optional double accruedInterest = 1;
+  optional AchStatus achStatus = 2;
+  optional bool cashBalanceEffectFlag = 3;
+  optional string clearingReferenceNumber = 4;
+  optional double dayTradeBuyingPowerEffect = 5;
+  optional string description = 6;
+  optional Fees fees = 7;
+  optional double netAmount = 8;
+  optional string orderDate = 9;
+  optional string orderId = 10;
+  optional double requirementReallocationAmount = 11;
+  optional string settlementDate = 12;
+  optional double sma = 13;
+  optional string subAccount = 14;
+  optional string transactionDate = 15;
+  optional int64 transactionId = 16;
+  optional TransactionItem transactionItem = 17;
+  optional string transactionSubType = 18;
+  optional Type type = 19;
+}
+
+message Underlying {
+  optional double ask = 1;
+  optional int32 askSize = 2;
+  optional double bid = 3;
+  optional int32 bidSize = 4;
+  optional double change = 5;
+  optional double close = 6;
+  optional bool delayed = 7;
+  optional string description = 8;
+  optional ExchangeName exchangeName = 9;
+  optional double fiftyTwoWeekHigh = 10;
+  optional double fiftyTwoWeekLow = 11;
+  optional double highPrice = 12;
+  optional double last = 13;
+  optional double lowPrice = 14;
+  optional double mark = 15;
+  optional double markChange = 16;
+  optional double markPercentChange = 17;
+  optional double openPrice = 18;
+  optional double percentChange = 19;
+  optional int64 quoteTime = 20;
+  optional string symbol = 21;
+  optional int64 totalVolume = 22;
+  optional int64 tradeTime = 23;
+}
+
+message UpdatePreferences {
+  optional AuthTokenTimeout authTokenTimeout = 1;
+  optional DefaultAdvancedToolLaunch defaultAdvancedToolLaunch = 2;
+  optional DefaultEquityOrderDuration defaultEquityOrderDuration = 3;
+  optional DefaultEquityOrderLegInstruction defaultEquityOrderLegInstruction = 4;
+  optional DefaultEquityOrderMarketSession defaultEquityOrderMarketSession = 5;
+  optional DefaultEquityOrderPriceLinkType defaultEquityOrderPriceLinkType = 6;
+  optional DefaultEquityOrderType defaultEquityOrderType = 7;
+  optional int32 defaultEquityQuantity = 8;
+  optional bool directEquityRouting = 9;
+  optional bool directOptionsRouting = 10;
+  optional EquityTaxLotMethod equityTaxLotMethod = 11;
+  optional bool expressTrading = 12;
+  optional MutualFundTaxLotMethod mutualFundTaxLotMethod = 13;
+  optional OptionTaxLotMethod optionTaxLotMethod = 14;
+}
+
+message UpdateWatchlist {
+  optional string name = 1;
+  optional string watchlistId = 2;
+  optional __UNKNOWN watchlistItems = 3;
+}
+
+message UserPrincipal {
+  optional string accessLevel = 1;
+  optional __UNKNOWN accounts = 2;
+  optional string authToken = 3;
+  optional string lastLoginTime = 4;
+  optional string loginTime = 5;
+  optional string primaryAccountId = 6;
+  optional ProfessionalStatus professionalStatus = 7;
+  optional Quotes quotes = 8;
+  optional bool stalePassword = 9;
+  optional StreamerInfo streamerInfo = 10;
+  optional StreamerSubscriptionKeys streamerSubscriptionKeys = 11;
+  optional string tokenExpirationTime = 12;
+  optional string userCdDomainId = 13;
+  optional string userId = 14;
+}
+
+message Watchlist {
+  optional string accountId = 1;
+  optional string name = 2;
+  optional Status status = 3;
+  optional string watchlistId = 4;
+  optional __UNKNOWN watchlistItems = 5;
+}
+
