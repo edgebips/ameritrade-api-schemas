@@ -6,6 +6,7 @@
         "503": "An error message indicating there is a temporary problem responding."
     },
     "method": "GET",
+    "name": "GetStreamerSubscriptionKeys",
     "query_params": {
         "accountIds": {
             "description": "A comma separated string of account IDs, to fetch subscription keys for each of them.",

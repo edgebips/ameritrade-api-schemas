@@ -6,6 +6,7 @@
         "404": "An error message indicating the instrument for the symbol/cusip was not found."
     },
     "method": "GET",
+    "name": "GetQuote",
     "query_params": {
         "apikey": {
             "description": "Pass your OAuth User ID to make an unauthenticated request for delayed data.",

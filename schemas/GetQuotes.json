@@ -7,16 +7,19 @@
         "406": "An error message indicating an issue in the symbol regex, or number of symbols searched is over the maximum."
     },
     "method": "GET",
+    "name": "GetQuotes",
     "query_params": {
         "apikey": {
             "description": "Pass your OAuth User ID to make an unauthenticated request for delayed data.",
+            "format": "int64",
             "required": false,
-            "type": "string"
+            "type": "integer"
         },
         "symbol": {
             "description": "Enter one or more symbols separated by commas",
+            "format": "int64",
             "required": false,
-            "type": "string"
+            "type": "integer"
         }
     },
     "response": {

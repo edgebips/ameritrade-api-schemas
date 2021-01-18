@@ -5,6 +5,7 @@
         "404": "Not Found"
     },
     "method": "GET",
+    "name": "GetHoursForMultipleMarkets",
     "query_params": {
         "apikey": {
             "description": "(Optional) Pass your Client ID if making an unauthenticated request",

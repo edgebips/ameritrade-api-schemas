@@ -6,36 +6,32 @@
         "500": "An error message indicating there was an unexpected server error."
     },
     "method": "GET",
+    "name": "GetOrdersByQuery",
     "query_params": {
         "accountId": {
             "description": "Account Number.",
-            "format": "int64",
             "required": false,
-            "type": "integer"
+            "type": "string"
         },
         "fromEnteredTime": {
             "description": "Specifies that no orders entered before this time should be returned. Valid ISO-8601 formats are :\nyyyy-MM-dd. Date must be within 60 days from today's date. 'toEnteredTime' must also be set.",
-            "format": "int64",
             "required": false,
-            "type": "integer"
+            "type": "string"
         },
         "maxResults": {
             "description": "The max number of orders to retrieve.",
-            "format": "int64",
             "required": false,
-            "type": "integer"
+            "type": "string"
         },
         "status": {
             "description": "Specifies that only orders of this status should be returned.",
-            "format": "int64",
             "required": false,
-            "type": "integer"
+            "type": "string"
         },
         "toEnteredTime": {
             "description": "Specifies that no orders entered after this time should be returned.Valid ISO-8601 formats are :\nyyyy-MM-dd. 'fromEnteredTime' must also be set.",
-            "format": "int64",
             "required": false,
-            "type": "integer"
+            "type": "string"
         }
     },
     "response": {

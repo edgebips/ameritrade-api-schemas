@@ -6,6 +6,7 @@
         "404": "An error message indicating movers for the instrument was not found."
     },
     "method": "GET",
+    "name": "GetMovers",
     "query_params": {
         "apikey": {
             "description": "Pass your OAuth User ID to make an unauthenticated request for delayed data.",

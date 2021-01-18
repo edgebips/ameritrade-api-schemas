@@ -8,6 +8,7 @@
         "503": "An error message indicating there is a temporary problem responding."
     },
     "method": "GET",
+    "name": "GetTransaction",
     "query_params": {},
     "response": {
         "top": {

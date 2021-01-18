@@ -208,6 +208,9 @@ def ParseSchemas(raw_dir: str) -> List[Tuple[str, Any, Any]]:
         if path.exists(filename):
             endpoint['response'] = ReadJsonWithComments(path.join(root, 'response.json'))
 
+        # Insert the name of the endpoint itself.
+        endpoint['name'] = endpoint_name
+
         rrpairs.append((endpoint_name, endpoint))
 
     return rrpairs

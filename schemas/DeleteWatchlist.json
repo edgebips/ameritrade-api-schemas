@@ -6,6 +6,7 @@
         "500": "An error message indicating there was an unexpected server error."
     },
     "method": "DELETE",
+    "name": "DeleteWatchlist",
     "query_params": {},
     "request": {},
     "url": "https://api.tdameritrade.com/v1/accounts/{accountId}/watchlists/{watchlistId}",

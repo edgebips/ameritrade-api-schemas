@@ -7,11 +7,13 @@
         "500": "An error message indicating there was an unexpected server error."
     },
     "method": "GET",
+    "name": "GetAccounts",
     "query_params": {
         "fields": {
             "description": "Balances displayed by default, additional fields can be added here by adding positions or orders\n\nExample:\nfields=positions,orders",
+            "format": "int64",
             "required": false,
-            "type": "string"
+            "type": "integer"
         }
     },
     "response": {

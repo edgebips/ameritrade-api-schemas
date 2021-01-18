@@ -7,6 +7,7 @@
         "503": "An error message indicating there is a temporary problem responding."
     },
     "method": "GET",
+    "name": "GetTransactions",
     "query_params": {
         "endDate": {
             "description": "Only transactions before the End Date will be returned.\nNote: The maximum date range is one year. Valid ISO-8601 formats are :\nyyyy-MM-dd.",

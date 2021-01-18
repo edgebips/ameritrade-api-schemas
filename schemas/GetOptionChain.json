@@ -7,6 +7,7 @@
         "500": "An error message indicating internal error in the service."
     },
     "method": "GET",
+    "name": "GetOptionChain",
     "query_params": {
         "apikey": {
             "description": "Pass your OAuth User ID to make an unauthenticated request for delayed data.",

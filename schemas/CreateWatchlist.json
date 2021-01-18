@@ -5,6 +5,7 @@
         "500": "An error message indicating there was an unexpected server error."
     },
     "method": "POST",
+    "name": "CreateWatchlist",
     "query_params": {},
     "request": {
         "top": {

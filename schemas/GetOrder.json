@@ -6,6 +6,7 @@
         "500": "An error message indicating there was an unexpected server error."
     },
     "method": "GET",
+    "name": "GetOrder",
     "query_params": {},
     "response": {
         "sub": {

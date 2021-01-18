@@ -6,6 +6,7 @@
         "503": "An error message indicating there is a temporary problem responding."
     },
     "method": "GET",
+    "name": "GetUserPrincipals",
     "query_params": {
         "fields": {
             "description": "A comma separated String which allows one to specify additional fields to return. None of these fields are returned by default. Possible values in this String can be:\n\nstreamerSubscriptionKeys\nstreamerConnectionInfo\npreferences\nsurrogateIds\n\nExample:\nfields=streamerSubscriptionKeys,streamerConnectionInfo",

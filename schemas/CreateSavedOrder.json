@@ -6,6 +6,7 @@
         "500": "An error message indicating there was an unexpected server error."
     },
     "method": "POST",
+    "name": "CreateSavedOrder",
     "query_params": {},
     "request": {
         "sub": {

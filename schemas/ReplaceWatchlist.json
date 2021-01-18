@@ -6,6 +6,7 @@
         "500": "An error message indicating there was an unexpected server error."
     },
     "method": "PUT",
+    "name": "ReplaceWatchlist",
     "query_params": {},
     "request": {
         "top": {

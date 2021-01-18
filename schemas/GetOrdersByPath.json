@@ -6,6 +6,7 @@
         "500": "An error message indicating there was an unexpected server error."
     },
     "method": "GET",
+    "name": "GetOrdersByPath",
     "query_params": {
         "fromEnteredTime": {
             "description": "Specifies that no orders entered before this time should be returned. Valid ISO-8601 formats are :\nyyyy-MM-dd. Date must be within 60 days from today's date. 'toEnteredTime' must also be set.",

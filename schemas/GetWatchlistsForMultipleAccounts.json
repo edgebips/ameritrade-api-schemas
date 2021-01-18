@@ -4,6 +4,7 @@
         "500": "An error message indicating there was an unexpected server error."
     },
     "method": "GET",
+    "name": "GetWatchlistsForMultipleAccounts",
     "query_params": {},
     "response": {
         "top": {

@@ -6,6 +6,7 @@
         "503": "An error message indicating there is a temporary problem responding."
     },
     "method": "GET",
+    "name": "GetPreferences",
     "query_params": {},
     "response": {
         "top": {

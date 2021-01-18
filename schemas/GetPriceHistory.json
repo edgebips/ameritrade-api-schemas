@@ -5,6 +5,7 @@
         "404": "Not Found"
     },
     "method": "GET",
+    "name": "GetPriceHistory",
     "query_params": {
         "apikey": {
             "description": "Pass your OAuth User ID to make an unauthenticated request for delayed data.",
