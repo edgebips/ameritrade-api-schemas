@@ -52,6 +52,16 @@ Three phases:
    types.
 
 
+## Status
+
+The schemas from the TD website were converted to `schemas/`.
+This format is custom, not consumable directly by some well-known tools.
+
+There is still more work to be done to deduplicate similar data types and enums,
+in particular. The ultimate goal is to do that in a fully automated fashion and
+generate a single clean proto API with the minimal schema. Work is underway
+under `proto/`.
+
 ## Credentials
 
 Martin Blais <blais@furius.ca>

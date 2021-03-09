@@ -1,0 +1,29 @@
+# TODO
+
+## Proto Generator Code
+
+- Change the enum code to first gather all the visible enums, then, separately,
+  match each occurrence to the closest enum in the full list. Look at subsets.
+
+- Generate *Request/*Response objects, as well as wrappers for pairs of them,
+  and a Log message that's essentially a list of a oneof of the pairs.
+
+- Generate sub-messages for each of the inner "object" instances (currently not
+  generated) and break them out at the top-level. These are nameless; find a way
+  to match them up and reconcile for deduplication.
+
+- Files:
+
+    messges.proto : Top-level request/response objects.
+    enums.proto   : All enums, deduplicated.
+    data.proto    : Inner objects.
+
+## Streaming API
+
+- Create a schema corresponding to the streaming API by hand, for which there
+  isn't much of a published website schema.
+
+## Doc
+
+Integrade doc like this into our enums:
+https://tlc.thinkorswim.com/center/howToTos/thinkManual/Trade/Order-Entry-Tools/Order-Statuses.html
